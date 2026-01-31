@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://b6do2gnge2vtn"]
 
-[ext_resource type="Shader" uid="uid://dske138voidgj" path="res://dithering/shader/dither.gdshader" id="1_f7g2b"]
-[ext_resource type="Texture2D" uid="uid://dsup8dlcjfiak" path="res://dithering/assets/palette_hollow.png" id="2_4ptq8"]
+[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_sb12i"]
 [ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://icon.svg" id="4_4ptq8"]
-[ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://dithering/assets/bayer2tile16.png" id="4_sb12i"]
-[ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://player.tscn" id="5_sb12i"]
+[ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
+[ext_resource type="PackedScene" uid="uid://c35x3ps5xx1ei" path="res://Scripts/BaseClasses/damagable_object.tscn" id="6_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="7_y646j"]
 
@@ -21,15 +20,6 @@ sky = SubResource("Sky_gbhdq")
 tonemap_mode = 2
 ssao_enabled = true
 glow_enabled = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbhdq"]
-shader = ExtResource("1_f7g2b")
-shader_parameter/u_dither_tex = ExtResource("4_sb12i")
-shader_parameter/u_color_tex = ExtResource("2_4ptq8")
-shader_parameter/u_bit_depth = 16
-shader_parameter/u_contrast = 1.5
-shader_parameter/u_offset = 0.0
-shader_parameter/u_dither_size = 2
 
 [node name="TestLevel" type="Node3D" unique_id=720170645]
 
@@ -49,22 +39,9 @@ size = Vector3(23.5607, 1, 12.771973)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8571415, 0.31404686, -9.726282)
 texture = ExtResource("4_4ptq8")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=796897076]
-material = SubResource("ShaderMaterial_gbhdq")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_sb12i")]
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1170480212]
-handle_input_locally = false
-size = Vector2i(1600, 900)
-render_target_update_mode = 4
-
-[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2124719694 instance=ExtResource("5_sb12i")]
+[node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("5_sb12i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2184336, 0, -3.1823235)
 
 [node name="desk2" parent="." unique_id=614792791 instance=ExtResource("7_y646j")]
@@ -72,3 +49,14 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.130577, -2.3386235, -7.399
 
 [node name="bathroomCabinet2" parent="." unique_id=1956154638 instance=ExtResource("7_lnbra")]
 transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 0.5, -1.7518605, -1.1780461, -8.464479)
+
+[node name="DamagableObject" parent="." unique_id=1491242658 instance=ExtResource("6_gbhdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4514294, -1.8386226, -4.9367537)
+
+[node name="DamagableObject2" parent="." unique_id=991980237 instance=ExtResource("6_gbhdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33051407, -0.6854234, -7.8844843)
+
+[node name="DamagableObject3" parent="." unique_id=1302096855 instance=ExtResource("6_gbhdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500495, -1.838623, -7.2408133)
+
+[editable path="DitheringViewport"]

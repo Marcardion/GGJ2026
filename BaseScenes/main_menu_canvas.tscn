@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bmp3qemvecdt3"]
+
+[ext_resource type="Script" uid="uid://c8bptirtbgkqh" path="res://BaseScenes/main_menu_canvas.gd" id="1_d6mfr"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1292134461]
+script = ExtResource("1_d6mfr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1312735308]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882354, 0.10980392, 0.19215687, 0.78431374)
+
+[node name="UI" type="Control" parent="." unique_id=1514909993]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI" unique_id=908554212]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 478.0
+offset_top = 87.0
+offset_right = 1083.0
+offset_bottom = 224.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "GAME NAME"
+
+[node name="BaseCredits" type="Label" parent="UI" unique_id=1130084955]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 663.0
+offset_right = 626.0
+offset_bottom = 834.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Developed By
+Laila Alves
+Marcelo Costa"
+
+[node name="StartGameButton" type="Button" parent="UI" unique_id=1522287690]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 640.0
+offset_top = 628.0
+offset_right = 921.0
+offset_bottom = 705.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start Game"
+
+[node name="EndGameButton" type="Button" parent="UI" unique_id=1594547213]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 678.0
+offset_top = 731.0
+offset_right = 883.0
+offset_bottom = 808.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "End Game"
+
+[connection signal="pressed" from="UI/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="UI/EndGameButton" to="." method="_on_end_game_button_pressed"]

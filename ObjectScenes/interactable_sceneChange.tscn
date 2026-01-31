@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://1gu22khgeie1"]
+
+[ext_resource type="Script" uid="uid://c5sept0guhveu" path="res://ObjectScenes/interactable_scene_change.gd" id="1_p8dp6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_glbon"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3klc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nlkkf"]
+
+[node name="InteractableSceneChange" type="StaticBody3D" unique_id=836935796]
+script = ExtResource("1_p8dp6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=481255971]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_glbon")
+surface_material_override/0 = SubResource("StandardMaterial3D_y3klc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1148073172]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nlkkf")

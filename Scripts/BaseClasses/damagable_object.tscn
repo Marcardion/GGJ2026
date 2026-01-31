@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c35x3ps5xx1ei"]
+
+[ext_resource type="Script" uid="uid://bnjp3eqeigoub" path="res://Scripts/BaseClasses/damagable_object.gd" id="1_lt8op"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u5bsj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt8op"]
+
+[node name="DamagableObject" type="StaticBody3D" unique_id=1491242658]
+script = ExtResource("1_lt8op")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1995443600]
+mesh = SubResource("BoxMesh_u5bsj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=908342496]
+shape = SubResource("BoxShape3D_lt8op")

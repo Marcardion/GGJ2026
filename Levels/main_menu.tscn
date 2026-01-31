@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bg5tsici80b54"]
+
+[ext_resource type="PackedScene" uid="uid://bmp3qemvecdt3" path="res://BaseScenes/main_menu_canvas.tscn" id="1_5qvx8"]
+[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_hllw6"]
+[ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_qor8d"]
+[ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="4_6e2af"]
+[ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="5_yw3yt"]
+[ext_resource type="PackedScene" uid="uid://1gu22khgeie1" path="res://ObjectScenes/interactable_sceneChange.tscn" id="6_1brcv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jix8l"]
+sky_top_color = Color(0.047058824, 0.050980393, 0.078431375, 1)
+sky_horizon_color = Color(0.10944672, 0.11088183, 0.12511624, 1)
+ground_bottom_color = Color(0.04733769, 0.04915654, 0.07864321, 1)
+ground_horizon_color = Color(0.10944672, 0.11088183, 0.12511624, 1)
+
+[sub_resource type="Sky" id="Sky_glbon"]
+sky_material = SubResource("ProceduralSkyMaterial_jix8l")
+
+[sub_resource type="Environment" id="Environment_nlkkf"]
+background_mode = 2
+sky = SubResource("Sky_glbon")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix8l"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_glbon"]
+size = Vector3(1, 4.732544, 18.81717)
+
+[node name="MainMenu" type="Node3D" unique_id=57535978]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1135044714]
+environment = SubResource("Environment_nlkkf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=322918877]
+transform = Transform3D(0.4771588, 0.8747712, -0.08423089, 0, 0.09584576, 0.9953962, 0.8788171, -0.47496206, 0.04573365, 0, 0, 0)
+light_energy = 4.01
+shadow_enabled = true
+
+[node name="MainMenuCanvas" parent="." unique_id=1292134461 instance=ExtResource("1_5qvx8")]
+
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_hllw6")]
+
+[node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("3_qor8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053377748, -2.416219, -3.9908686)
+startDisabled = true
+
+[node name="Background" type="Node3D" parent="." unique_id=275512452]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Background" unique_id=596860873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291121, -2.8386233, -5.8859863)
+use_collision = true
+size = Vector3(18.75785, 1, 12.771973)
+material = SubResource("StandardMaterial3D_jix8l")
+
+[node name="desk2" parent="Background" unique_id=614792791 instance=ExtResource("4_6e2af")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.1318359, -2.3386235, -7.3993564)
+
+[node name="bathroomCabinet2" parent="Background" unique_id=1956154638 instance=ExtResource("5_yw3yt")]
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 0.5, -0.75311935, -1.1780461, -8.464479)
+
+[node name="InvisibleWalls" type="Node3D" parent="Background" unique_id=1112373030]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Background/InvisibleWalls" unique_id=737625442]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Background/InvisibleWalls/StaticBody3D" unique_id=1075338616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -6.0742726)
+shape = SubResource("BoxShape3D_glbon")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Background/InvisibleWalls" unique_id=1865661086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.661364, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Background/InvisibleWalls/StaticBody3D2" unique_id=1806983174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -6.0742726)
+shape = SubResource("BoxShape3D_glbon")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Background/InvisibleWalls" unique_id=1212795131]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.586784, 0, -3.5580125)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Background/InvisibleWalls/StaticBody3D3" unique_id=1105632039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -8.879554)
+shape = SubResource("BoxShape3D_glbon")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Background/InvisibleWalls" unique_id=851752384]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.586784, 0, 8.551718)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Background/InvisibleWalls/StaticBody3D4" unique_id=1454773238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -8.879554)
+shape = SubResource("BoxShape3D_glbon")
+
+[node name="InteractableSceneChange" parent="Background" unique_id=1747226719 instance=ExtResource("6_1brcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058993638, -1.0348161, -7.5970907)
+scenePath = "res://test_level.tscn"
+
+[editable path="DitheringViewport"]
