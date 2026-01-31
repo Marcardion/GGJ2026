@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://tj6dfo6gj2ae"]
+
+[ext_resource type="PackedScene" uid="uid://2o827b1pl6m8" path="res://art/3D assets/bathroomCabinet.glb" id="1_dctor"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlokb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8wwsf"]
+points = PackedVector3Array(0.426774, 0.3840539, -0.08, 0.20225057, 0.0059461035, -0.21, 0.20225057, 0.0059461035, -0.08, 0.426774, 0.0059461035, -0.08, 0.426774, 0.3840539, -0.21, 0.20225057, 0.3840539, -0.21, 0.20225057, 0.3840539, -0.08, 0.426774, 0.0059461035, -0.21)
+
+[node name="bathroomCabinet" unique_id=1956154638 instance=ExtResource("1_dctor")]
+
+[node name="bathroomCabinet(Clone)" parent="." index="0" unique_id=1311308722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19687247, 0, 0.07373133)
+
+[node name="door" parent="bathroomCabinet(Clone)" index="0" unique_id=620763850]
+surface_material_override/2 = SubResource("StandardMaterial3D_wlokb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=317925465]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1782686835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19687247, 0, 0.07373133)
+shape = SubResource("ConvexPolygonShape3D_8wwsf")

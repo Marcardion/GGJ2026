@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://icon.svg" id="4_4ptq8"]
 [ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://dithering/assets/bayer2tile16.png" id="4_sb12i"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://player.tscn" id="5_sb12i"]
-[ext_resource type="PackedScene" uid="uid://da1u0uxtn7r4l" path="res://art/3D assets/desk.glb" id="6_y646j"]
-[ext_resource type="PackedScene" uid="uid://2o827b1pl6m8" path="res://art/3D assets/bathroomCabinet.glb" id="7_lnbra"]
+[ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
+[ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="7_y646j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,7 +38,6 @@ environment = SubResource("Environment_y646j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1637250336]
 transform = Transform3D(-0.8660254, -0.49384424, 0.07821725, 0, 0.15643449, 0.98768836, -0.50000006, 0.8553632, -0.13547625, 0, 0, 0)
-light_energy = 3.535
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1732206058]
@@ -68,8 +67,8 @@ render_target_update_mode = 4
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=2124719694 instance=ExtResource("5_sb12i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2184336, 0, -3.1823235)
 
-[node name="desk" parent="." unique_id=765217948 instance=ExtResource("6_y646j")]
+[node name="desk2" parent="." unique_id=614792791 instance=ExtResource("7_y646j")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.130577, -2.3386235, -7.3993564)
 
-[node name="bathroomCabinet" parent="." unique_id=1525388901 instance=ExtResource("7_lnbra")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.9367677, -1.1584303, -7.8387465)
+[node name="bathroomCabinet2" parent="." unique_id=1956154638 instance=ExtResource("7_lnbra")]
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 0.5, -1.7518605, -1.1780461, -8.464479)

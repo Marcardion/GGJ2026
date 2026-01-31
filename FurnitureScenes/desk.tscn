@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cf07klgtiybdy"]
+
+[ext_resource type="PackedScene" uid="uid://da1u0uxtn7r4l" path="res://art/3D assets/desk.glb" id="1_ep8l3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t5y75"]
+points = PackedVector3Array(0.0064870184, 2.7755576e-17, -0.36866423, 0.71872115, 0.38439998, 0.004399985, 0.71872115, 0.38439998, -0.3796619, -0.0041481163, 0.38439998, 0.004399985, 0.69937664, 0.0047380924, 0, -0.0041481163, 0.38439998, -0.3796619, 0.70801514, 5.551115e-17, -0.36866423, 0.015127289, 0.0047380924, 0)
+
+[node name="desk" unique_id=614792791 instance=ExtResource("1_ep8l3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1309752471]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1795860073]
+shape = SubResource("ConvexPolygonShape3D_t5y75")

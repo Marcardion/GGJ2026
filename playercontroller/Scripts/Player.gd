@@ -5,6 +5,7 @@ const WALK_SPEED = 5.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.8
 const SENSITIVITY = 0.004
+@export var JOYPAD_SENS = 0.05
 
 #bob variables
 const BOB_FREQ = 2.4
@@ -38,6 +39,14 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
+	# Handle Controller Rotation
+	var rotate_dir = Input.get_vector("rotate_left","rotate_right","rotate_up", "rotate_down")
+	
+	if rotate_dir.length() > 0:
+		head.rotate_y(-rotate_dir.x * JOYPAD_SENS)
+		camera.rotate_x(-rotate_dir.y * JOYPAD_SENS)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
