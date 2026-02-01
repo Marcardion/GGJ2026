@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7pofyyvwv5s3" path="res://art/gun_sprites.png" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b54coabu2g0x8" path="res://art/UI/tile_0135.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cynknu73exjbv" path="res://art/UI/tile_0201.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dl3qhyjmcxdmn" path="res://art/2D assets/sprites/player_hand_empty.png" id="5_mtku5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
 
@@ -35,6 +36,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mtku5")
+}],
+"loop": true,
+"name": &"idle_hand",
 "speed": 5.0
 }, {
 "frames": [{
@@ -80,11 +89,11 @@ debug_shape_custom_color = Color(0.629061, 0.7433998, 0.96105665, 1)
 debug_shape_thickness = 3
 
 [node name="GunSprite" type="AnimatedSprite3D" parent="Head/Camera3D" unique_id=102393395]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.325, -0.135, -0.5)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.325, -0.2, -0.5)
 layers = 2
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"shoot"
-autoplay = "idle"
+animation = &"idle_hand"
+autoplay = "idle_hand"
 
 [node name="Crosshair" type="TextureRect" parent="." unique_id=1024759470]
 anchors_preset = 8

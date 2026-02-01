@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b6do2gnge2vtn"]
 
+[ext_resource type="Texture2D" uid="uid://c07plpy2tuavl" path="res://art/2D assets/mask_3faces.png" id="1_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_sb12i"]
-[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://icon.svg" id="4_4ptq8"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
 [ext_resource type="PackedScene" uid="uid://c35x3ps5xx1ei" path="res://Scripts/BaseClasses/damagable_object.tscn" id="6_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
@@ -36,8 +36,8 @@ use_collision = true
 size = Vector3(23.5607, 1, 12.771973)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=688220821]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8571415, 0.31404686, -9.726282)
-texture = ExtResource("4_4ptq8")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1561708, 1.9688318, -9.132805)
+texture = ExtResource("1_gbhdq")
 
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_sb12i")]
 
