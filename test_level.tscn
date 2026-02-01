@@ -4,13 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_sb12i"]
 [ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="3_58smv"]
 [ext_resource type="Shader" uid="uid://dske138voidgj" path="res://Shaders/dithering/shader/dither.gdshader" id="3_lowby"]
-[ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://enemy.tscn" id="4_y646j"]
+[ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://BaseScenes/enemy.tscn" id="4_y646j"]
 [ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://Shaders/dithering/assets/bayer2tile16.png" id="5_a25ih"]
 [ext_resource type="Texture2D" uid="uid://xs1ohjmlwcx7" path="res://Shaders/dithering/assets/palette_eeve.png" id="5_lowby"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
 [ext_resource type="PackedScene" uid="uid://c35x3ps5xx1ei" path="res://Scripts/BaseClasses/damagable_object.tscn" id="6_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="7_y646j"]
+[ext_resource type="PackedScene" uid="uid://d3r8162spc6dn" path="res://ObjectScenes/oldman_enemy.tscn" id="12_a25ih"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -82,5 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33051407, -0.6854234, -7.8
 
 [node name="DamagableObject3" parent="." unique_id=1302096855 instance=ExtResource("6_gbhdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500495, -1.838623, -7.2408133)
+
+[node name="Enemy2" parent="." unique_id=1414180886 instance=ExtResource("12_a25ih")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.122116, -2.0915475, -3.340574)
 
 [editable path="DitheringViewport"]

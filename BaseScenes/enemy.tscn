@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb4tfjd4unb77"]
 
-[ext_resource type="Script" uid="uid://c3r646ikwpr4b" path="res://enemy.gd" id="1_ldaek"]
+[ext_resource type="Script" uid="uid://c3r646ikwpr4b" path="res://BaseScenes/enemy.gd" id="1_ldaek"]
 [ext_resource type="Texture2D" uid="uid://dombgq77ixw8t" path="res://art/2D assets/monster_sprites.png" id="1_st1b1"]
 [ext_resource type="AudioStream" uid="uid://c23t2vuiomsrv" path="res://Sounds/monster_die.wav" id="3_qgslg"]
 
