@@ -3,10 +3,11 @@ extends CharacterBody3D
 @onready var enemy_sprite = $EnemySprite
 @onready var cooldownTimer = $AttackCooldown
 
-@export var move_speed = 2.0
+@export var move_speed = 3
+@export var health = 5
 @export var attack_range = 2.0
 @export var attack_damage = 1.0
-@export var attack_cooldown = 2
+@export var attack_cooldown = 0.5
 @export var detection_range = 10
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
@@ -17,11 +18,11 @@ func _ready():
 	cooldownTimer.wait_time = attack_cooldown
 
 func _physics_process(delta):
-	if dead:
+	if dead || !canAttack:
 		return
 	if player == null:
 		return
-	if Globals.player_enabled ==false:
+	if Globals.player_enabled == false:
 		return
 	
 	var dir = player.global_position - global_position
@@ -46,6 +47,7 @@ func attempt_to_kill_player():
 		return
 	
 	print("deal damage")
+	enemy_sprite.play("attack")
 	player.damage(1)
 	canAttack = false
 	cooldownTimer.start()
@@ -53,7 +55,14 @@ func attempt_to_kill_player():
 	canAttack = true
 
 func damage(incoming_damage:float):
-	dead = true
-	$DeathSound.play()
-	enemy_sprite.play("death")
-	$CollisionShape3D.disabled = true
+	health -= incoming_damage
+	if health <= 0:
+		dead = true
+		$DeathSound.play()
+		enemy_sprite.play("death")
+		$CollisionShape3D.disabled = true
+	else:
+		# Add damage sound
+		enemy_sprite.modulate = Color.INDIAN_RED
+		await get_tree().create_timer(0.5).timeout
+		enemy_sprite.modulate = Color.WHITE
