@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dkbo4mcd0ve47" path="res://Sounds/enemy/sfx_lady_hurt.wav" id="7_fxfa6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1ppv"]
+height = 2.399414
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee21u"]
 atlas = ExtResource("2_fxfa6")
@@ -128,7 +129,7 @@ attack_cooldown = 0.8
 detection_range = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682257078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.199707, 0)
 shape = SubResource("CapsuleShape3D_b1ppv")
 
 [node name="EnemySprite" type="AnimatedSprite3D" parent="." unique_id=1071977555]

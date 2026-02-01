@@ -15,6 +15,7 @@ size = Vector2i(1600, 900)
 
 [node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("3_sebih")]
 shouldLoadScene = true
+messageText = "What are you hiding behind your mask?"
 loadScenePath = "res://Levels/operahouse.tscn"
 
 [editable path="DitheringViewport"]

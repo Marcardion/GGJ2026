@@ -7,11 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dsup8dlcjfiak" path="res://Shaders/dithering/assets/palette_hollow.png" id="5_38et7"]
 [ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://Shaders/dithering/assets/bayer2tile16.png" id="5_a25ih"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
-[ext_resource type="PackedScene" uid="uid://c35x3ps5xx1ei" path="res://Scripts/BaseClasses/damagable_object.tscn" id="6_gbhdq"]
+[ext_resource type="PackedScene" uid="uid://bsaklqobxkbdb" path="res://BaseScenes/message_base.tscn" id="7_a25ih"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="7_y646j"]
 [ext_resource type="PackedScene" uid="uid://d3r8162spc6dn" path="res://ObjectScenes/oldman_enemy.tscn" id="12_a25ih"]
 [ext_resource type="PackedScene" uid="uid://bawajlhw00okl" path="res://ObjectScenes/lady_enemy.tscn" id="13_38et7"]
+[ext_resource type="PackedScene" uid="uid://ty0g8h7vk1kr" path="res://Scripts/BaseClasses/area_action_trigger.tscn" id="13_b7ax5"]
+[ext_resource type="PackedScene" uid="uid://il2rufesp4ol" path="res://Scripts/Actions/action_open_message.tscn" id="14_b7ax5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -55,16 +57,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1561708, 1.9688318, 
 billboard = 1
 texture = ExtResource("1_gbhdq")
 
-[node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("3_58smv")]
-
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_sb12i")]
 material = SubResource("ShaderMaterial_38et7")
 
 [node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
 size = Vector2i(1600, 900)
 
-[node name="Player" parent="DitheringViewport/SubViewport" index="0" unique_id=2124719694 instance=ExtResource("5_sb12i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2184336, 0, -3.1823235)
+[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1627543730 instance=ExtResource("3_58smv")]
+
+[node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("7_a25ih")]
+visible = false
+
+[node name="Player" parent="DitheringViewport/SubViewport" index="1" unique_id=2124719694 instance=ExtResource("5_sb12i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2184336, -2.122487, -3.1823235)
 
 [node name="desk2" parent="." unique_id=614792791 instance=ExtResource("7_y646j")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.130577, -2.3386235, -7.3993564)
@@ -72,19 +77,24 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -2.130577, -2.3386235, -7.399
 [node name="bathroomCabinet2" parent="." unique_id=1956154638 instance=ExtResource("7_lnbra")]
 transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 0.5, -1.7518605, -1.1780461, -8.464479)
 
-[node name="DamagableObject" parent="." unique_id=1491242658 instance=ExtResource("6_gbhdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4514294, -1.8386226, -4.9367537)
-
-[node name="DamagableObject2" parent="." unique_id=991980237 instance=ExtResource("6_gbhdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33051407, -0.6854234, -7.8844843)
-
-[node name="DamagableObject3" parent="." unique_id=1302096855 instance=ExtResource("6_gbhdq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500495, -1.838623, -7.2408133)
-
 [node name="Enemy2" parent="." unique_id=1414180886 instance=ExtResource("12_a25ih")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.122116, -2.0915475, -3.340574)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -20.727552, -2.0915475, -3.340574)
 
 [node name="Enemy3" parent="." unique_id=609934053 instance=ExtResource("13_38et7")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.2927694, -2.2150874, 4.3855324)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.864292, -2.2150874, 9.374346)
+
+[node name="AreaActionTrigger" parent="." unique_id=2132233610 node_paths=PackedStringArray("actionArray") instance=ExtResource("13_b7ax5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1482909, -1.2011695, -6.711911)
+actionArray = [NodePath("ActionOpenMessage")]
+
+[node name="ActionOpenMessage" parent="AreaActionTrigger" unique_id=1148073238 instance=ExtResource("14_b7ax5")]
+actionMessageText = "This is a test message"
+actionMessageWaitTime = 1.0
+
+[node name="Sprite3D2" type="Sprite3D" parent="AreaActionTrigger" unique_id=250699326]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_gbhdq")
 
 [editable path="DitheringViewport"]
+[editable path="AreaActionTrigger"]
