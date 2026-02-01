@@ -77,7 +77,7 @@ func _unhandled_input(event):
 func _process(delta):
 	if Globals.player_enabled == false:
 		return
-
+	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 	
