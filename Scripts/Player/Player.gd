@@ -56,13 +56,21 @@ func _ready():
 		canShoot = false
 
 
+func _input(event):
+	if Globals.player_enabled == false:
+		return
+	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _unhandled_input(event):
 	if Globals.player_enabled == false:
 		return
-	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if abs(event.screen_relative.x) > 1:
+			head.rotate_y(-event.screen_relative.x * SENSITIVITY)
+		camera.rotate_x(-event.screen_relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+	
 
 func _process(delta):
 	if Globals.player_enabled == false:
