@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dxb7c0qp5ivq4"]
+
+[ext_resource type="PackedScene" uid="uid://dnc17pks5a45x" path="res://art/3D assets/basemesh_urban_fence_01.glb" id="1_bplnl"]
+
+[node name="basemesh_urban_fence_01" unique_id=295664832 instance=ExtResource("1_bplnl")]

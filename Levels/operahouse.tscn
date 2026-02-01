@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://byurwk7j1hn6f"]
 
 [ext_resource type="PackedScene" uid="uid://bdiypj6hkb1jf" path="res://Levels/theaterfloor.tscn" id="1_64jyp"]
+[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="1_b144e"]
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_ulk66"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_yfl12"]
 [ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/lobby.tscn" id="4_ulk66"]
+[ext_resource type="PackedScene" uid="uid://dnc17pks5a45x" path="res://art/3D assets/basemesh_urban_fence_01.glb" id="5_yfl12"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64jyp"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,14 +28,59 @@ environment = SubResource("Environment_yfl12")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
+[node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("1_b144e")]
 
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_ulk66")]
 
 [node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("3_yfl12")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.017745972, 11.070506, -49.008873)
 
+[node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
+
 [node name="lobby" parent="." unique_id=1129946871 instance=ExtResource("4_ulk66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67)
+
+[node name="opera box" type="Node3D" parent="." unique_id=1724519033]
+
+[node name="floor" type="CSGCombiner3D" parent="opera box" unique_id=530680890]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="opera box/floor" unique_id=559156286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5, 13, 9.5)
+size = Vector3(11, 1, 57)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="opera box/floor" unique_id=581730307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5, 13, -4)
+size = Vector3(15, 1, 68)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="opera box/floor" unique_id=2130175319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5, 13, 9.5)
+size = Vector3(11, 1, 57)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="opera box/floor" unique_id=1898981022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5, 13, -4)
+size = Vector3(15, 1, 68)
+
+[node name="walls" type="CSGCombiner3D" parent="." unique_id=2013524534]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls" unique_id=2048166084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 16, -28)
+size = Vector3(1, 15, 20)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="walls" unique_id=1062726715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, -26)
+size = Vector3(1, 15, 20)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls" unique_id=136201385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, 29)
+size = Vector3(1, 15, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="walls" unique_id=2046367503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 16, 28.679495)
+size = Vector3(1, 15, 20)
+
+[node name="basemesh_urban_fence_01" parent="." unique_id=295664832 instance=ExtResource("5_yfl12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 14, -13)
 
 [editable path="DitheringViewport"]

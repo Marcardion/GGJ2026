@@ -85,7 +85,7 @@ depth = 9.0
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="staircase_left" unique_id=1314191660]
 transform = Transform3D(1.3113413e-07, 0, -0.99999976, 0, 1, 0, 0.99999976, 0, 1.3113413e-07, 49, 8.513835, 28)
 use_collision = true
-polygon = PackedVector2Array(0, -8, 0, 2, 20, 10, 20, -8)
+polygon = PackedVector2Array(0, -8, 0, 2, 20, 5, 20, -8)
 depth = 10.5
 
 [node name="staircase_right" type="CSGCombiner3D" parent="." unique_id=371807346]
@@ -106,7 +106,7 @@ depth = 9.0
 [node name="CSGPolygon3D2" type="CSGPolygon3D" parent="staircase_right" unique_id=308970403]
 transform = Transform3D(1.3038516e-07, -8.185452e-12, -0.99999976, 0, 1, 2.068532e-10, 1, 0, 1.2945384e-07, 49.755947, 8.514536, 28.003716)
 use_collision = true
-polygon = PackedVector2Array(0, -8, 0, 2, 20, 10, 20, -8)
+polygon = PackedVector2Array(0, -8, 0, 2, 20, 5, 20, -8)
 depth = 10.5
 
 [node name="pillars" type="CSGCombiner3D" parent="." unique_id=265493976]
