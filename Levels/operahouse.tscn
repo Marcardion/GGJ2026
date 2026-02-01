@@ -28,12 +28,12 @@ environment = SubResource("Environment_yfl12")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("1_b144e")]
-
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_ulk66")]
 
 [node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("3_yfl12")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.017745972, 11.070506, -49.008873)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.017745972, 3.5579615, -49.008873)
+
+[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="1" unique_id=1627543730 instance=ExtResource("1_b144e")]
 
 [node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GGJ2026"
-run/main_scene="uid://byurwk7j1hn6f"
+run/main_scene="uid://bg5tsici80b54"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.17167819, 0.1702041, 0.27732435, 1)
 boot_splash/stretch_mode=0
