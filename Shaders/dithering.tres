@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://crih3mw4c5c1k"]
+
+[ext_resource type="Shader" uid="uid://dske138voidgj" path="res://Shaders/dithering/shader/dither.gdshader" id="1_qp3if"]
+[ext_resource type="Texture2D" uid="uid://dsup8dlcjfiak" path="res://Shaders/dithering/assets/palette_hollow.png" id="2_xu3ju"]
+[ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://Shaders/dithering/assets/bayer2tile16.png" id="3_6qdrc"]
+
+[resource]
+shader = ExtResource("1_qp3if")
+shader_parameter/u_dither_tex = ExtResource("3_6qdrc")
+shader_parameter/u_color_tex = ExtResource("2_xu3ju")
+shader_parameter/u_bit_depth = 16
+shader_parameter/u_contrast = 1.5
+shader_parameter/u_offset = 0.0
+shader_parameter/u_dither_size = 2

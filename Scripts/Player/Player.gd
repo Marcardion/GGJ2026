@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 var speed
 const WALK_SPEED = 5.0
@@ -24,24 +25,28 @@ var gravity = 9.8
 @onready var interactRayCast = $Head/Camera3D/InteractRayCast
 @onready var gunRayCast = $Head/Camera3D/GunRayCast
 @onready var gunSprite = $Head/Camera3D/GunSprite
+@onready var gunFireSFX = $Head/Camera3D/GunSprite/GunFireSFX
 
 @onready var crosshair = $Crosshair
 @export var basicCrosshair : Texture
 @export var interactCrosshair : Texture
 
-@export var startDisabled : bool
+@export var startDisabled : bool = false
 var disabled = false
 var canShoot = true
 
 @export var shootDamage : float = 1
+@export var health : float = 10
 
 func _ready():
 	gunSprite.animation_finished.connect(shoot_anim_done)
 	if !startDisabled:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		gunSprite.play("idle_pistol")
 	else:
 		Globals.disable_player_control()
-		# gunSprite.visible = false
+		gunSprite.play("idle_hand")
+		canShoot = false
 
 
 func _unhandled_input(event):
@@ -56,13 +61,13 @@ func _process(delta):
 	if Globals.player_enabled == false:
 		return
 
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+	
 	if interactRayCast.is_colliding() and interactRayCast.get_collider().has_method("onHoverInteract"):
 		crosshair.texture = interactCrosshair
 	else:
 		crosshair.texture = basicCrosshair
-
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
 	
 	if Input.is_action_just_pressed("interact"):
 		if interactRayCast.is_colliding() and interactRayCast.get_collider().has_method("Interact"):
@@ -118,20 +123,31 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+func equipPistol():
+	gunSprite.play("idle_pistol")
+
 func shoot():
 	if !canShoot:
 		return
 	canShoot = false
 	gunSprite.play("shoot")
-	#shoot_sound.play()
+	gunFireSFX.play()
 	if gunRayCast.is_colliding() and gunRayCast.get_collider().has_method("damage"):
 		gunRayCast.get_collider().damage(shootDamage)
 
 func shoot_anim_done():
 	canShoot = true
+	gunSprite.play("idle_pistol")
 	
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func damage(incomingDamage : float):
+	print("damage")
+	health -= incomingDamage
+	if health <= 0:
+		Globals.fadeOut("res://Levels/main_menu.tscn")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

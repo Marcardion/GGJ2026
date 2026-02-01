@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8bptirtbgkqh" path="res://BaseScenes/main_menu_canvas.gd" id="1_d6mfr"]
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=1292134461]
+[node name="MainMenuCanvas" type="CanvasLayer" unique_id=1292134461]
 script = ExtResource("1_d6mfr")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1312735308]

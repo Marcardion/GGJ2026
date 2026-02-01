@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c07plpy2tuavl" path="res://art/2D assets/mask_3faces.png" id="1_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_sb12i"]
+[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="3_58smv"]
+[ext_resource type="Shader" uid="uid://dske138voidgj" path="res://Shaders/dithering/shader/dither.gdshader" id="3_lowby"]
+[ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://enemy.tscn" id="4_y646j"]
+[ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://Shaders/dithering/assets/bayer2tile16.png" id="5_a25ih"]
+[ext_resource type="Texture2D" uid="uid://xs1ohjmlwcx7" path="res://Shaders/dithering/assets/palette_eeve.png" id="5_lowby"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
 [ext_resource type="PackedScene" uid="uid://c35x3ps5xx1ei" path="res://Scripts/BaseClasses/damagable_object.tscn" id="6_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
@@ -21,6 +26,15 @@ tonemap_mode = 2
 ssao_enabled = true
 glow_enabled = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38et7"]
+shader = ExtResource("3_lowby")
+shader_parameter/u_dither_tex = ExtResource("5_a25ih")
+shader_parameter/u_color_tex = ExtResource("5_lowby")
+shader_parameter/u_bit_depth = 16
+shader_parameter/u_contrast = 1.5
+shader_parameter/u_offset = 0.0
+shader_parameter/u_dither_size = 2
+
 [node name="TestLevel" type="Node3D" unique_id=720170645]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=362689453]
@@ -39,9 +53,18 @@ size = Vector3(23.5607, 1, 12.771973)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1561708, 1.9688318, -9.132805)
 texture = ExtResource("1_gbhdq")
 
-[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_sb12i")]
+[node name="Enemy" parent="." unique_id=1263956976 instance=ExtResource("4_y646j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90701, -2.3386226, -8.020885)
 
-[node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("5_sb12i")]
+[node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("3_58smv")]
+
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_sb12i")]
+material = SubResource("ShaderMaterial_38et7")
+
+[node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
+size = Vector2i(1600, 900)
+
+[node name="Player" parent="DitheringViewport/SubViewport" index="0" unique_id=2124719694 instance=ExtResource("5_sb12i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2184336, 0, -3.1823235)
 
 [node name="desk2" parent="." unique_id=614792791 instance=ExtResource("7_y646j")]

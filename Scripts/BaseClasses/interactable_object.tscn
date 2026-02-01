@@ -26,6 +26,8 @@ albedo_color = Color(0.4014486, 0.38066408, 0.64545864, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_nlkkf"]
 
 [node name="InteractableObject" type="StaticBody3D" unique_id=836935796]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_bcilo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=481255971]

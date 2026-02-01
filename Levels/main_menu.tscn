@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="4_6e2af"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="5_yw3yt"]
 [ext_resource type="PackedScene" uid="uid://1gu22khgeie1" path="res://ObjectScenes/interactable_sceneChange.tscn" id="6_1brcv"]
+[ext_resource type="Texture2D" uid="uid://c07plpy2tuavl" path="res://art/2D assets/mask_3faces.png" id="7_hllw6"]
+[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="8_qor8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jix8l"]
 sky_top_color = Color(0.047058824, 0.050980393, 0.078431375, 1)
@@ -40,7 +42,10 @@ shadow_enabled = true
 
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_hllw6")]
 
-[node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("3_qor8d")]
+[node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
+size = Vector2i(1600, 900)
+
+[node name="Player" parent="DitheringViewport/SubViewport" index="0" unique_id=2124719694 instance=ExtResource("3_qor8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053377748, -2.416219, -3.9908686)
 startDisabled = true
 
@@ -88,7 +93,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -8.8
 shape = SubResource("BoxShape3D_glbon")
 
 [node name="InteractableSceneChange" parent="Background" unique_id=1747226719 instance=ExtResource("6_1brcv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058993638, -1.0348161, -7.5970907)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058993638, -0.8653683, -7.5970907)
 scenePath = "res://test_level.tscn"
 
+[node name="MeshInstance3D" parent="Background/InteractableSceneChange" index="0" unique_id=481255971]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Background/InteractableSceneChange" unique_id=1821694450]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.049043506, 0.10545546, -0.24077892)
+billboard = 1
+texture = ExtResource("7_hllw6")
+
+[node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("8_qor8d")]
+
 [editable path="DitheringViewport"]
+[editable path="Background/InteractableSceneChange"]
