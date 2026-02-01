@@ -2,7 +2,6 @@ extends Node
 
 var player_enabled = true
 @onready var gameHUD : CanvasLayer
-var fadeInFinished : Signal
 var fadeOutTween : Tween
 
 func _input(event):
@@ -25,7 +24,7 @@ func disable_player_control():
 func enable_player_control():
 	player_enabled = true
 
-func fadeOut(scenepath):
+func fadeOut():
 	disable_player_control()
 	if fadeOutTween:
 		fadeOutTween.kill()
@@ -35,6 +34,8 @@ func fadeOut(scenepath):
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(colorRect, "color", Color(colorRect.color.r, colorRect.color.g, colorRect.color.b, 1), 1.5)
 	fadeOutTween = tween
+func fadeOutLoadScene(scenepath):
+	fadeOut()
 	fadeOutTween.finished.connect(change_scene.bind(scenepath))
 
 func fadeIn():
@@ -49,7 +50,6 @@ func fadeIn():
 	fadeOutTween = tween
 	await fadeOutTween.finished
 	enable_player_control()
-	fadeInFinished.emit()
 	
 	
 	

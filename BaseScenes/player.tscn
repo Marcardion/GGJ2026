@@ -2,25 +2,38 @@
 
 [ext_resource type="Script" uid="uid://dg7hy3jalwraf" path="res://Scripts/Player/Player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://c7pofyyvwv5s3" path="res://art/gun_sprites.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://bye1p8ym3yn64" path="res://Sounds/player/walk/sfx_walk_2.wav" id="3_ewbpw"]
 [ext_resource type="Texture2D" uid="uid://b54coabu2g0x8" path="res://art/UI/tile_0135.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cynknu73exjbv" path="res://art/UI/tile_0201.png" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://cq30vtlf8asq0" path="res://Sounds/player/walk/sfx_walk_3.wav" id="4_pqltq"]
 [ext_resource type="Texture2D" uid="uid://bs7j8xap4xd27" path="res://art/UI/mask_dying.png" id="5_1f6qr"]
 [ext_resource type="Texture2D" uid="uid://dl3qhyjmcxdmn" path="res://art/2D assets/sprites/player_hand_empty.png" id="5_mtku5"]
+[ext_resource type="AudioStream" uid="uid://cagipsvcnx1g7" path="res://Sounds/player/walk/sfx_walk_4.wav" id="5_qvo46"]
 [ext_resource type="Texture2D" uid="uid://ciunr3lcssas" path="res://art/2D assets/sprites/player_hand_holdlight.png" id="6_5wodn"]
 [ext_resource type="Texture2D" uid="uid://dklwdw4vo3261" path="res://art/2D assets/sprites/player_hand_holdgun.png" id="6_h66fj"]
+[ext_resource type="AudioStream" uid="uid://c7cabn26d7v2k" path="res://Sounds/player/walk/sfx_walk_5.wav" id="6_i54xc"]
 [ext_resource type="Texture2D" uid="uid://i58gi02pdfdp" path="res://art/UI/mask_hurt.png" id="6_v1g8r"]
+[ext_resource type="AudioStream" uid="uid://c6swe2a1q7sue" path="res://Sounds/player/walk/sfx_walk_6.wav" id="7_2odv1"]
+[ext_resource type="AudioStream" uid="uid://b1strnudq1yfh" path="res://Sounds/player/walk/sfx_walk_7.wav" id="8_6n7ef"]
 [ext_resource type="Texture2D" uid="uid://ctpbrkojhr1uv" path="res://art/2D assets/sprites/player_hand_focuslight.png" id="8_lje0r"]
-[ext_resource type="AudioStream" uid="uid://bvtqikscgtm88" path="res://Sounds/258250__breezeark__flintlock-gunshot.wav" id="9_lje0r"]
+[ext_resource type="AudioStream" uid="uid://drq78qkm40hlt" path="res://Sounds/player/walk/sfx_walk_8.wav" id="9_jkxdg"]
+[ext_resource type="AudioStream" uid="uid://bvtqikscgtm88" path="res://Sounds/player/gun/258250__breezeark__flintlock-gunshot.wav" id="9_lje0r"]
 [ext_resource type="Texture2D" uid="uid://dr20sgg5ykbdb" path="res://art/2D assets/sprites/player_hand_holdgun_shoot.png" id="9_o2f1p"]
 [ext_resource type="Texture2D" uid="uid://bgo14vl66qv35" path="res://art/2D assets/sprites/player_hand_holdgun_recoil.png" id="10_kjg1k"]
+[ext_resource type="AudioStream" uid="uid://fq01opntlvil" path="res://Sounds/player/walk/sfx_walk_9.wav" id="10_xp531"]
 [ext_resource type="Texture2D" uid="uid://c186rghqnimol" path="res://art/UI/mask_grid.png" id="11_tigwy"]
 [ext_resource type="Texture2D" uid="uid://cskil41nk8nob" path="res://art/2D assets/lantern_1.png" id="12_kjg1k"]
 [ext_resource type="Texture2D" uid="uid://cj5tnd6t77v3o" path="res://art/UI/mask_normal.png" id="12_no26x"]
 [ext_resource type="Texture2D" uid="uid://dbgvr5fxb86t5" path="res://art/2D assets/lantern_2.png" id="13_i7cpr"]
 [ext_resource type="Texture2D" uid="uid://b0jaf2b5qxjk7" path="res://art/UI/curtain_2.png" id="14_i7cpr"]
+[ext_resource type="AudioStream" uid="uid://cydu5dn1h50is" path="res://Sounds/player/damage/sfx_hurt_2.wav" id="17_2odv1"]
+[ext_resource type="AudioStream" uid="uid://dtpsmb25xmokt" path="res://Sounds/player/walk/sfx_walk_1.wav" id="17_ywwvu"]
+[ext_resource type="AudioStream" uid="uid://be3bvvoj4u4lg" path="res://Sounds/player/damage/sfx_hurt_3.wav" id="18_6n7ef"]
 [ext_resource type="Texture2D" uid="uid://kicw1lw108om" path="res://art/UI/SPR_DamageScreen.png" id="19_v1g8r"]
 [ext_resource type="Texture2D" uid="uid://f8lhky30acao" path="res://art/UI/curtain_1.png" id="20_yu5ns"]
 [ext_resource type="Theme" uid="uid://bawy0u7g7ye80" path="res://button_basic.tres" id="21_ywwvu"]
+[ext_resource type="AudioStream" uid="uid://6mwijpucpydg" path="res://Sounds/player/damage/sfx_hurt_1.wav" id="26_qvo46"]
+[ext_resource type="AudioStream" uid="uid://b3nueqw7cpkv4" path="res://Sounds/player/damage/sfx_dying.wav" id="27_i54xc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
 
@@ -102,11 +115,13 @@ animations = [{
 [node name="Player" type="CharacterBody3D" unique_id=2124719694 groups=["player"]]
 process_mode = 3
 script = ExtResource("1_4flbx")
+footStepSounds = Array[AudioStream]([ExtResource("17_ywwvu"), ExtResource("3_ewbpw"), ExtResource("4_pqltq"), ExtResource("5_qvo46"), ExtResource("6_i54xc"), ExtResource("7_2odv1"), ExtResource("8_6n7ef"), ExtResource("9_jkxdg"), ExtResource("10_xp531")])
 basicCrosshair = ExtResource("3_i3pqv")
 interactCrosshair = ExtResource("3_hqtel")
 neutralMask = ExtResource("12_no26x")
 damagedMask = ExtResource("6_v1g8r")
 nearDeathMask = ExtResource("5_1f6qr")
+damageSounds = Array[AudioStream]([ExtResource("26_qvo46"), ExtResource("17_2odv1"), ExtResource("18_6n7ef")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=74756443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -159,6 +174,20 @@ frame_progress = 0.78562886
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D/LanternSprite/Lantern" unique_id=1189185776]
 transform = Transform3D(12.500001, 0, 0, 0, 12.500001, 0, 0, 0, 12.5, 0, -0.10275841, 0)
 light_size = 0.1
+
+[node name="FootstepSFX" type="AudioStreamPlayer3D" parent="." unique_id=1174358735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
+stream = ExtResource("17_ywwvu")
+
+[node name="DamageSFX" type="AudioStreamPlayer3D" parent="." unique_id=436211427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
+stream = ExtResource("26_qvo46")
+pitch_scale = 0.9
+
+[node name="DeathSFX" type="AudioStreamPlayer3D" parent="." unique_id=1337092171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
+stream = ExtResource("27_i54xc")
+pitch_scale = 0.9
 
 [node name="Crosshair" type="TextureRect" parent="." unique_id=1024759470]
 anchors_preset = 8

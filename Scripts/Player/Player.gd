@@ -27,6 +27,10 @@ var gravity = 9.8
 @onready var gunSprite = $Head/Camera3D/GunSprite
 @onready var gunFireSFX = $Head/Camera3D/GunSprite/GunFireSFX
 
+@onready var footStepSFXPlayer = $FootstepSFX
+@export var footStepSounds : Array[AudioStream]
+var shouldPlayFootstep = true
+
 @onready var crosshair = $Crosshair
 @export var basicCrosshair : Texture
 @export var interactCrosshair : Texture
@@ -37,6 +41,11 @@ var gravity = 9.8
 @export var nearDeathMask: Texture
 
 @onready var damageScreen = $DamageFeedback
+@onready var damageSFXPlayer = $DamageSFX
+@onready var deathSFXPlayer = $DeathSFX
+@export var damageSounds : Array[AudioStream]
+
+
 @onready var pauseHUD = $PauseHUD
 @onready var resumeButton = $PauseHUD/VBoxContainer/ResumeButton
 
@@ -72,7 +81,6 @@ func _unhandled_input(event):
 			head.rotate_y(-event.screen_relative.x * SENSITIVITY)
 		camera.rotate_x(-event.screen_relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-	
 
 func _process(delta):
 	if Globals.player_enabled == false:
@@ -129,6 +137,7 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
+			playFootstep()
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
@@ -146,6 +155,14 @@ func _physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
+
+func playFootstep():
+	if shouldPlayFootstep:
+		footStepSFXPlayer.stream = footStepSounds[randi_range(0,8)]
+		footStepSFXPlayer.play()
+		shouldPlayFootstep = false
+		await get_tree().create_timer(2.5/speed).timeout
+		shouldPlayFootstep = true
 
 func equipPistol():
 	gunSprite.play("idle_pistol")
@@ -172,12 +189,14 @@ func _headbob(time) -> Vector3:
 func damage(incomingDamage : float):
 	health -= incomingDamage
 	maskSprite.texture = damagedMask
-	# add damage sound here
 	damageScreen.visible = true
 	if health <= 0:
-		Globals.fadeOut("res://Levels/main_menu.tscn")
+		deathSFXPlayer.play()
+		Globals.fadeOutLoadScene("res://Levels/main_menu.tscn")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
+		damageSFXPlayer.stream = damageSounds[randi_range(0,2)]
+		damageSFXPlayer.play()
 		await get_tree().create_timer(1).timeout
 		if health >= 4:
 			maskSprite.texture = neutralMask
