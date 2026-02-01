@@ -11,6 +11,8 @@ extends CharacterBody3D
 @export var detection_range = 10
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
+@onready var DeathSFX = $DeathSound
+@onready var DamageSFX = $DamageSound
 var dead = false
 var canAttack = true
 
@@ -58,11 +60,11 @@ func damage(incoming_damage:float):
 	health -= incoming_damage
 	if health <= 0:
 		dead = true
-		$DeathSound.play()
+		DeathSFX.play()
 		enemy_sprite.play("death")
 		$CollisionShape3D.disabled = true
 	else:
-		# Add damage sound
+		DamageSFX.play()
 		enemy_sprite.modulate = Color.INDIAN_RED
 		await get_tree().create_timer(0.5).timeout
 		enemy_sprite.modulate = Color.WHITE

@@ -1,61 +1,61 @@
-[gd_scene format=3 uid="uid://d3r8162spc6dn"]
+[gd_scene format=3 uid="uid://bawajlhw00okl"]
 
-[ext_resource type="Script" uid="uid://c3r646ikwpr4b" path="res://BaseScenes/enemy.gd" id="1_eqjjg"]
-[ext_resource type="Texture2D" uid="uid://dojww3ewdtinc" path="res://art/2D assets/sprites/enemies/enemy_body_animations_attack.png" id="2_svgv5"]
-[ext_resource type="Texture2D" uid="uid://r1xywc1rpyia" path="res://art/2D assets/sprites/enemies/enemy_body_animations_death.png" id="3_gnkkj"]
-[ext_resource type="Texture2D" uid="uid://cmojl3gxj8q5q" path="res://art/2D assets/sprites/enemies/enemy_body_animations_aggro.png" id="4_hsgk4"]
-[ext_resource type="Texture2D" uid="uid://c7cm6t571t5yb" path="res://art/2D assets/sprites/enemies/enemy_body_animations_walk.png" id="5_hddsb"]
-[ext_resource type="AudioStream" uid="uid://cmohdgbnkhano" path="res://Sounds/enemy/sfx_oldman_dying.wav" id="6_gnkkj"]
-[ext_resource type="AudioStream" uid="uid://gbknoarmqwxs" path="res://Sounds/enemy/sfx_oldman_hurt.wav" id="7_hsgk4"]
+[ext_resource type="Script" uid="uid://c3r646ikwpr4b" path="res://BaseScenes/enemy.gd" id="1_07x72"]
+[ext_resource type="Texture2D" uid="uid://dojww3ewdtinc" path="res://art/2D assets/sprites/enemies/enemy_body_animations_attack.png" id="2_fxfa6"]
+[ext_resource type="Texture2D" uid="uid://r1xywc1rpyia" path="res://art/2D assets/sprites/enemies/enemy_body_animations_death.png" id="3_jeggf"]
+[ext_resource type="Texture2D" uid="uid://cmojl3gxj8q5q" path="res://art/2D assets/sprites/enemies/enemy_body_animations_aggro.png" id="4_72ymw"]
+[ext_resource type="Texture2D" uid="uid://c7cm6t571t5yb" path="res://art/2D assets/sprites/enemies/enemy_body_animations_walk.png" id="5_fwylm"]
+[ext_resource type="AudioStream" uid="uid://pcwp4qc365jd" path="res://Sounds/enemy/sfx_lady_dying.wav" id="6_07x72"]
+[ext_resource type="AudioStream" uid="uid://dkbo4mcd0ve47" path="res://Sounds/enemy/sfx_lady_hurt.wav" id="7_fxfa6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1ppv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee21u"]
-atlas = ExtResource("2_svgv5")
+atlas = ExtResource("2_fxfa6")
 region = Rect2(0, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ve6tn"]
-atlas = ExtResource("2_svgv5")
+atlas = ExtResource("2_fxfa6")
 region = Rect2(413, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2i8x"]
-atlas = ExtResource("2_svgv5")
+atlas = ExtResource("2_fxfa6")
 region = Rect2(826, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1qyc"]
-atlas = ExtResource("2_svgv5")
+atlas = ExtResource("2_fxfa6")
 region = Rect2(1239, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n3ie"]
-atlas = ExtResource("3_gnkkj")
+atlas = ExtResource("3_jeggf")
 region = Rect2(0, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4po3"]
-atlas = ExtResource("3_gnkkj")
+atlas = ExtResource("3_jeggf")
 region = Rect2(413, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b6ci4"]
-atlas = ExtResource("3_gnkkj")
+atlas = ExtResource("3_jeggf")
 region = Rect2(826, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dpbwm"]
-atlas = ExtResource("3_gnkkj")
+atlas = ExtResource("3_jeggf")
 region = Rect2(1239, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aa1gy"]
-atlas = ExtResource("3_gnkkj")
+atlas = ExtResource("3_jeggf")
 region = Rect2(1652, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lrksp"]
-atlas = ExtResource("4_hsgk4")
+atlas = ExtResource("4_72ymw")
 region = Rect2(413, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_843jw"]
-atlas = ExtResource("5_hddsb")
+atlas = ExtResource("5_fwylm")
 region = Rect2(0, 0, 413, 314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkfak"]
-atlas = ExtResource("5_hddsb")
+atlas = ExtResource("5_fwylm")
 region = Rect2(413, 0, 413, 314)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5p3ml"]
@@ -117,13 +117,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="OldManEnemy" type="CharacterBody3D" unique_id=1414180886]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+[node name="LadyEnemy" type="CharacterBody3D" unique_id=1414180886]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 collision_mask = 3
-script = ExtResource("1_eqjjg")
-health = 6
+script = ExtResource("1_07x72")
+move_speed = 4
+health = 3
 attack_range = 1.5
 attack_cooldown = 0.8
+detection_range = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682257078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -137,10 +139,10 @@ animation = &"attack"
 autoplay = "idle"
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
-stream = ExtResource("6_gnkkj")
+stream = ExtResource("6_07x72")
 
 [node name="DamageSound" type="AudioStreamPlayer3D" parent="." unique_id=302149201]
 transform = Transform3D(1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0)
-stream = ExtResource("7_hsgk4")
+stream = ExtResource("7_fxfa6")
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1087820324]

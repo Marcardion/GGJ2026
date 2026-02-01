@@ -125,4 +125,7 @@ autoplay = "idle"
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
 stream = ExtResource("3_qgslg")
 
+[node name="DamageSound" type="AudioStreamPlayer3D" parent="." unique_id=1640802083]
+stream = ExtResource("3_qgslg")
+
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1087820324]

@@ -2,10 +2,10 @@ extends CharacterBody3D
 class_name Player
 
 var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 8.0
+@export var WALK_SPEED = 5.0
+@export var SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.8
-const SENSITIVITY = 0.004
+@export var SENSITIVITY = 0.004
 @export var JOYPAD_SENS = 0.05
 
 #bob variables
@@ -26,6 +26,7 @@ var gravity = 9.8
 @onready var gunRayCast = $Head/Camera3D/GunRayCast
 @onready var gunSprite = $Head/Camera3D/GunSprite
 @onready var gunFireSFX = $Head/Camera3D/GunSprite/GunFireSFX
+@export var attackCooldown = 2.0
 
 @onready var footStepSFXPlayer = $FootstepSFX
 @export var footStepSounds : Array[AudioStream]
@@ -177,6 +178,7 @@ func shoot():
 		gunRayCast.get_collider().damage(shootDamage)
 
 func shoot_anim_done():
+	await get_tree().create_timer(attackCooldown).timeout
 	canShoot = true
 	gunSprite.play("idle_pistol")
 	

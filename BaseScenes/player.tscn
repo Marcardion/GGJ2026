@@ -115,6 +115,7 @@ animations = [{
 [node name="Player" type="CharacterBody3D" unique_id=2124719694 groups=["player"]]
 process_mode = 3
 script = ExtResource("1_4flbx")
+attackCooldown = 0.5
 footStepSounds = Array[AudioStream]([ExtResource("17_ywwvu"), ExtResource("3_ewbpw"), ExtResource("4_pqltq"), ExtResource("5_qvo46"), ExtResource("6_i54xc"), ExtResource("7_2odv1"), ExtResource("8_6n7ef"), ExtResource("9_jkxdg"), ExtResource("10_xp531")])
 basicCrosshair = ExtResource("3_i3pqv")
 interactCrosshair = ExtResource("3_hqtel")

@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_sb12i"]
 [ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="3_58smv"]
 [ext_resource type="Shader" uid="uid://dske138voidgj" path="res://Shaders/dithering/shader/dither.gdshader" id="3_lowby"]
-[ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://BaseScenes/enemy.tscn" id="4_y646j"]
+[ext_resource type="Texture2D" uid="uid://dsup8dlcjfiak" path="res://Shaders/dithering/assets/palette_hollow.png" id="5_38et7"]
 [ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://Shaders/dithering/assets/bayer2tile16.png" id="5_a25ih"]
-[ext_resource type="Texture2D" uid="uid://xs1ohjmlwcx7" path="res://Shaders/dithering/assets/palette_eeve.png" id="5_lowby"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
 [ext_resource type="PackedScene" uid="uid://c35x3ps5xx1ei" path="res://Scripts/BaseClasses/damagable_object.tscn" id="6_gbhdq"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="7_y646j"]
 [ext_resource type="PackedScene" uid="uid://d3r8162spc6dn" path="res://ObjectScenes/oldman_enemy.tscn" id="12_a25ih"]
+[ext_resource type="PackedScene" uid="uid://bawajlhw00okl" path="res://ObjectScenes/lady_enemy.tscn" id="13_38et7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,7 +30,7 @@ glow_enabled = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_38et7"]
 shader = ExtResource("3_lowby")
 shader_parameter/u_dither_tex = ExtResource("5_a25ih")
-shader_parameter/u_color_tex = ExtResource("5_lowby")
+shader_parameter/u_color_tex = ExtResource("5_38et7")
 shader_parameter/u_bit_depth = 16
 shader_parameter/u_contrast = 1.5
 shader_parameter/u_offset = 0.0
@@ -46,17 +46,14 @@ transform = Transform3D(-0.8660254, -0.49384424, 0.07821725, 0, 0.15643449, 0.98
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1732206058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054601192, -2.8386233, -5.8859863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5193725, -2.8386233, -6.380432)
 use_collision = true
-size = Vector3(23.5607, 1, 12.771973)
+size = Vector3(50.498146, 1, 42.61194)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=688220821]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1561708, 1.9688318, -9.132805)
 billboard = 1
 texture = ExtResource("1_gbhdq")
-
-[node name="Enemy" parent="." unique_id=1263956976 instance=ExtResource("4_y646j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90701, -2.3386226, -8.020885)
 
 [node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("3_58smv")]
 
@@ -86,5 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5500495, -1.838623, -7.2408
 
 [node name="Enemy2" parent="." unique_id=1414180886 instance=ExtResource("12_a25ih")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -8.122116, -2.0915475, -3.340574)
+
+[node name="Enemy3" parent="." unique_id=609934053 instance=ExtResource("13_38et7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.2927694, -2.2150874, 4.3855324)
 
 [editable path="DitheringViewport"]
