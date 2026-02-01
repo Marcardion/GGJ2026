@@ -51,6 +51,7 @@ size = Vector3(23.5607, 1, 12.771973)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=688220821]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.1561708, 1.9688318, -9.132805)
+billboard = 1
 texture = ExtResource("1_gbhdq")
 
 [node name="Enemy" parent="." unique_id=1263956976 instance=ExtResource("4_y646j")]

@@ -1,0 +1,40 @@
+[gd_resource type="Theme" format=3 uid="uid://bawy0u7g7ye80"]
+
+[ext_resource type="FontFile" uid="uid://btinqjvygd146" path="res://art/UI/fonts/Amarante-Regular.ttf" id="1_gews8"]
+[ext_resource type="StyleBox" uid="uid://c631dig4kp6g6" path="res://button_pretty.tres" id="2_conbr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gews8"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.58, 0.58, 0.58, 0.39215687)
+skew = Vector2(0.5, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_conbr"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0, 0, 0.68235296)
+skew = Vector2(0.5, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[resource]
+default_font = ExtResource("1_gews8")
+Button/constants/align_to_largest_stylebox = 256
+Button/constants/outline_size = 1
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_gews8")
+Button/styles/hover = SubResource("StyleBoxFlat_gews8")
+Button/styles/normal = ExtResource("2_conbr")
+Button/styles/pressed = SubResource("StyleBoxFlat_conbr")

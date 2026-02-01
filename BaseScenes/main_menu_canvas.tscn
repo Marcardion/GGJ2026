@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bmp3qemvecdt3"]
 
 [ext_resource type="Script" uid="uid://c8bptirtbgkqh" path="res://BaseScenes/main_menu_canvas.gd" id="1_d6mfr"]
+[ext_resource type="FontFile" uid="uid://ctutf16epe2ca" path="res://art/UI/fonts/Aladin-Regular.ttf" id="2_at3tb"]
+[ext_resource type="FontFile" uid="uid://btinqjvygd146" path="res://art/UI/fonts/Amarante-Regular.ttf" id="3_iqhg8"]
+[ext_resource type="Theme" uid="uid://bawy0u7g7ye80" path="res://button_basic.tres" id="4_lf6fk"]
 
 [node name="MainMenuCanvas" type="CanvasLayer" unique_id=1292134461]
 script = ExtResource("1_d6mfr")
@@ -15,69 +18,75 @@ color = Color(0.105882354, 0.10980392, 0.19215687, 0.78431374)
 
 [node name="UI" type="Control" parent="." unique_id=1514909993]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="UI" unique_id=908554212]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 478.0
-offset_top = 87.0
-offset_right = 1083.0
-offset_bottom = 224.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
-text = "GAME NAME"
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI" unique_id=1184942295]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 328.0
+grow_horizontal = 2
+theme_override_constants/separation = -30
+alignment = 1
+
+[node name="Title" type="Label" parent="UI/VBoxContainer2" unique_id=908554212]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_at3tb")
+theme_override_font_sizes/font_size = 120
+text = "HoLoFoTe"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UI/VBoxContainer2" unique_id=190686013]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iqhg8")
+theme_override_font_sizes/font_size = 30
+text = "under the spotlight "
+horizontal_alignment = 1
 
 [node name="BaseCredits" type="Label" parent="UI" unique_id=1130084955]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 663.0
-offset_right = 626.0
-offset_bottom = 834.0
+offset_left = 50.0
+offset_top = -171.0
+offset_right = 304.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_iqhg8")
+theme_override_font_sizes/font_size = 32
 text = "Developed By
 Laila Alves
 Marcelo Costa"
 
-[node name="StartGameButton" type="Button" parent="UI" unique_id=1522287690]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1695876227]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 640.0
-offset_top = 628.0
-offset_right = 921.0
-offset_bottom = 705.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="StartGameButton" type="Button" parent="UI/VBoxContainer" unique_id=1522287690]
+custom_minimum_size = Vector2(280, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_lf6fk")
 text = "Start Game"
 
-[node name="EndGameButton" type="Button" parent="UI" unique_id=1594547213]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 678.0
-offset_top = 731.0
-offset_right = 883.0
-offset_bottom = 808.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+[node name="EndGameButton" type="Button" parent="UI/VBoxContainer" unique_id=1594547213]
+custom_minimum_size = Vector2(280, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_lf6fk")
 text = "End Game"
 
-[connection signal="pressed" from="UI/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="UI/EndGameButton" to="." method="_on_end_game_button_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/EndGameButton" to="." method="_on_end_game_button_pressed"]
