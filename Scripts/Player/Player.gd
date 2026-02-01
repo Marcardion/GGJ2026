@@ -37,6 +37,8 @@ var gravity = 9.8
 @export var nearDeathMask: Texture
 
 @onready var damageScreen = $DamageFeedback
+@onready var pauseHUD = $PauseHUD
+@onready var resumeButton = $PauseHUD/VBoxContainer/ResumeButton
 
 @export var startDisabled : bool = false
 var disabled = false
@@ -56,13 +58,21 @@ func _ready():
 		canShoot = false
 
 
+func _input(event):
+	if Globals.player_enabled == false:
+		return
+	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _unhandled_input(event):
 	if Globals.player_enabled == false:
 		return
-	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if abs(event.screen_relative.x) > 1:
+			head.rotate_y(-event.screen_relative.x * SENSITIVITY)
+		camera.rotate_x(-event.screen_relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+	
 
 func _process(delta):
 	if Globals.player_enabled == false:
@@ -79,6 +89,13 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if interactRayCast.is_colliding() and interactRayCast.get_collider().has_method("Interact"):
 			interactRayCast.get_collider().Interact()
+			
+	if Input.is_action_just_pressed("pause"):
+			pauseHUD.visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Globals.disable_player_control()
+			resumeButton.grab_focus()
+			
 
 func _physics_process(delta):
 	if Globals.player_enabled == false:
@@ -167,3 +184,17 @@ func damage(incomingDamage : float):
 		else:
 			maskSprite.texture = nearDeathMask
 		damageScreen.visible = false
+
+func _on_resume_button_pressed():
+	get_tree().paused = false
+	pauseHUD.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Globals.enable_player_control()
+
+
+func _on_back_to_menu_button_pressed():
+	Globals.return_to_menu()
+
+
+func _on_quit_game_button_pressed():
+	get_tree().quit()

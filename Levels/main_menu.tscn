@@ -49,7 +49,7 @@ size = Vector2i(1600, 900)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053377748, -2.416219, -3.9908686)
 startDisabled = true
 
-[node name="HUD" parent="DitheringViewport/SubViewport/Player" index="3" unique_id=1298503440]
+[node name="HUD" parent="DitheringViewport/SubViewport/Player" index="4" unique_id=1298503440]
 visible = false
 
 [node name="Background" type="Node3D" parent="." unique_id=275512452]
