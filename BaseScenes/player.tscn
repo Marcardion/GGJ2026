@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://c7pofyyvwv5s3" path="res://art/gun_sprites.png" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b54coabu2g0x8" path="res://art/UI/tile_0135.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cynknu73exjbv" path="res://art/UI/tile_0201.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bs7j8xap4xd27" path="res://art/UI/mask_dying.png" id="5_1f6qr"]
 [ext_resource type="Texture2D" uid="uid://dl3qhyjmcxdmn" path="res://art/2D assets/sprites/player_hand_empty.png" id="5_mtku5"]
 [ext_resource type="Texture2D" uid="uid://ciunr3lcssas" path="res://art/2D assets/sprites/player_hand_holdlight.png" id="6_5wodn"]
 [ext_resource type="Texture2D" uid="uid://dklwdw4vo3261" path="res://art/2D assets/sprites/player_hand_holdgun.png" id="6_h66fj"]
+[ext_resource type="Texture2D" uid="uid://i58gi02pdfdp" path="res://art/UI/mask_hurt.png" id="6_v1g8r"]
 [ext_resource type="Texture2D" uid="uid://ctpbrkojhr1uv" path="res://art/2D assets/sprites/player_hand_focuslight.png" id="8_lje0r"]
 [ext_resource type="AudioStream" uid="uid://bvtqikscgtm88" path="res://Sounds/258250__breezeark__flintlock-gunshot.wav" id="9_lje0r"]
 [ext_resource type="Texture2D" uid="uid://dr20sgg5ykbdb" path="res://art/2D assets/sprites/player_hand_holdgun_shoot.png" id="9_o2f1p"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cj5tnd6t77v3o" path="res://art/UI/mask_normal.png" id="12_no26x"]
 [ext_resource type="Texture2D" uid="uid://dbgvr5fxb86t5" path="res://art/2D assets/lantern_2.png" id="13_i7cpr"]
 [ext_resource type="Texture2D" uid="uid://b0jaf2b5qxjk7" path="res://art/UI/curtain_2.png" id="14_i7cpr"]
+[ext_resource type="Texture2D" uid="uid://kicw1lw108om" path="res://art/UI/SPR_DamageScreen.png" id="19_v1g8r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
 
@@ -98,6 +101,9 @@ animations = [{
 script = ExtResource("1_4flbx")
 basicCrosshair = ExtResource("3_i3pqv")
 interactCrosshair = ExtResource("3_hqtel")
+neutralMask = ExtResource("12_no26x")
+damagedMask = ExtResource("6_v1g8r")
+nearDeathMask = ExtResource("5_1f6qr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=74756443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -164,6 +170,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_i3pqv")
 
+[node name="DamageFeedback" type="TextureRect" parent="." unique_id=989766305]
+visible = false
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 6.0
+offset_right = 446.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7823038, 0.7819272)
+mouse_filter = 2
+texture = ExtResource("19_v1g8r")
+
 [node name="HUD" type="Control" parent="." unique_id=1298503440]
 layout_mode = 3
 anchors_preset = 0
@@ -198,9 +220,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 760.0
+offset_left = 755.0
 offset_top = 760.0
-offset_right = 800.0
+offset_right = 795.0
 offset_bottom = 800.0
 grow_horizontal = 2
 grow_vertical = 0

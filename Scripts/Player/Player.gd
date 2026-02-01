@@ -31,6 +31,13 @@ var gravity = 9.8
 @export var basicCrosshair : Texture
 @export var interactCrosshair : Texture
 
+@onready var maskSprite = $HUD/Control/MaskBorder/MaskSprite
+@export var neutralMask : Texture
+@export var damagedMask : Texture
+@export var nearDeathMask: Texture
+
+@onready var damageScreen = $DamageFeedback
+
 @export var startDisabled : bool = false
 var disabled = false
 var canShoot = true
@@ -146,8 +153,17 @@ func _headbob(time) -> Vector3:
 	return pos
 
 func damage(incomingDamage : float):
-	print("damage")
 	health -= incomingDamage
+	maskSprite.texture = damagedMask
+	# add damage sound here
+	damageScreen.visible = true
 	if health <= 0:
 		Globals.fadeOut("res://Levels/main_menu.tscn")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		await get_tree().create_timer(1).timeout
+		if health >= 4:
+			maskSprite.texture = neutralMask
+		else:
+			maskSprite.texture = nearDeathMask
+		damageScreen.visible = false

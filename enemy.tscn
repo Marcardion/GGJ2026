@@ -30,15 +30,19 @@ region = Rect2(1024, 256, 256, 256)
 atlas = ExtResource("1_st1b1")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_omjj5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("1_st1b1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
 atlas = ExtResource("1_st1b1")
 region = Rect2(256, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wxfj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
 atlas = ExtResource("1_st1b1")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6k1c4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqyl"]
 atlas = ExtResource("1_st1b1")
 region = Rect2(768, 0, 256, 256)
 
@@ -67,24 +71,33 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kp04g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omjj5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7wxfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6k1c4")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqyl")
+}],
+"loop": true,
+"name": &"walking",
 "speed": 5.0
 }]
 
 [node name="Enemy" type="CharacterBody3D" unique_id=1414180886]
 collision_mask = 3
 script = ExtResource("1_ldaek")
+attack_range = 1.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682257078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -94,8 +107,10 @@ shape = SubResource("CapsuleShape3D_b1ppv")
 transform = Transform3D(0.854239, 0, 0, 0, 0.854239, 0, 0, 0, 0.854239, 0, 1.09408, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_5p3ml")
-animation = &"idle"
+animation = &"walking"
 autoplay = "idle"
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
 stream = ExtResource("3_qgslg")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1087820324]
