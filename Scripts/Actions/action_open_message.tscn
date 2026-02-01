@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://il2rufesp4ol"]
+
+[ext_resource type="Script" uid="uid://d0rk0iiy6ns04" path="res://Scripts/Actions/action_open_message.gd" id="1_31532"]
+
+[node name="ActionOpenMessage" type="Node3D" unique_id=1148073238]
+script = ExtResource("1_31532")

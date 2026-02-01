@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cxkn1eb6kxgfx" path="res://BaseScenes/message_base.gd" id="1_j3brp"]
 [ext_resource type="Theme" uid="uid://bawy0u7g7ye80" path="res://button_basic.tres" id="2_voa5x"]
 
-[node name="MessageBase" type="Control" unique_id=1096049273]
+[node name="MessageBase" type="Control" unique_id=1096049273 groups=["message"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
