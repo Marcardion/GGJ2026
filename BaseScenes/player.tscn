@@ -7,31 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://dl3qhyjmcxdmn" path="res://art/2D assets/sprites/player_hand_empty.png" id="5_mtku5"]
 [ext_resource type="Texture2D" uid="uid://ciunr3lcssas" path="res://art/2D assets/sprites/player_hand_holdlight.png" id="6_5wodn"]
 [ext_resource type="Texture2D" uid="uid://dklwdw4vo3261" path="res://art/2D assets/sprites/player_hand_holdgun.png" id="6_h66fj"]
-[ext_resource type="Texture2D" uid="uid://xfnfkhk6bdgq" path="res://art/2D assets/lantern.png" id="8_ig5a3"]
 [ext_resource type="Texture2D" uid="uid://ctpbrkojhr1uv" path="res://art/2D assets/sprites/player_hand_focuslight.png" id="8_lje0r"]
 [ext_resource type="AudioStream" uid="uid://bvtqikscgtm88" path="res://Sounds/258250__breezeark__flintlock-gunshot.wav" id="9_lje0r"]
+[ext_resource type="Texture2D" uid="uid://dr20sgg5ykbdb" path="res://art/2D assets/sprites/player_hand_holdgun_shoot.png" id="9_o2f1p"]
+[ext_resource type="Texture2D" uid="uid://bgo14vl66qv35" path="res://art/2D assets/sprites/player_hand_holdgun_recoil.png" id="10_kjg1k"]
 [ext_resource type="Texture2D" uid="uid://c186rghqnimol" path="res://art/UI/mask_grid.png" id="11_tigwy"]
+[ext_resource type="Texture2D" uid="uid://cskil41nk8nob" path="res://art/2D assets/lantern_1.png" id="12_kjg1k"]
 [ext_resource type="Texture2D" uid="uid://cj5tnd6t77v3o" path="res://art/UI/mask_normal.png" id="12_no26x"]
+[ext_resource type="Texture2D" uid="uid://dbgvr5fxb86t5" path="res://art/2D assets/lantern_2.png" id="13_i7cpr"]
+[ext_resource type="Texture2D" uid="uid://b0jaf2b5qxjk7" path="res://art/UI/curtain_2.png" id="14_i7cpr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("2_onrkg")
-region = Rect2(0, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("2_onrkg")
-region = Rect2(512, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("2_onrkg")
-region = Rect2(1024, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
-atlas = ExtResource("2_onrkg")
-region = Rect2(1536, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("2_onrkg")
 region = Rect2(0, 0, 512, 512)
 
@@ -79,20 +67,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_onrkg")
+"texture": ExtResource("9_o2f1p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hqtel")
+"texture": ExtResource("10_kjg1k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sweqy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hs0m")
+"texture": ExtResource("6_h66fj")
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 8.0
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwk74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_kjg1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i7cpr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody3D" unique_id=2124719694 groups=["player"]]
@@ -124,7 +123,7 @@ debug_shape_thickness = 3
 transform = Transform3D(0.09563048, -0.02923717, 0, 0.02923717, 0.09563048, 0, 0, 0, 0.1, 0.4, -0.28, -0.5)
 layers = 2
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"idle_pistol"
+animation = &"shoot"
 autoplay = "idle_pistol"
 
 [node name="GunFireSFX" type="AudioStreamPlayer3D" parent="Head/Camera3D/GunSprite" unique_id=2030951140]
@@ -139,10 +138,13 @@ sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"idle_lantern"
 autoplay = "idle_lantern"
 
-[node name="Lantern" type="Sprite3D" parent="Head/Camera3D/LanternSprite" unique_id=103503333]
+[node name="Lantern" type="AnimatedSprite3D" parent="Head/Camera3D/LanternSprite" unique_id=1953752903]
 transform = Transform3D(0.7364039, -0.3125849, 0, 0.3125849, 0.7364039, 0, 0, 0, 0.8, 1.54, -0.34, -0.585)
 no_depth_test = true
-texture = ExtResource("8_ig5a3")
+sprite_frames = SubResource("SpriteFrames_pwk74")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.78562886
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Camera3D/LanternSprite/Lantern" unique_id=1189185776]
 transform = Transform3D(12.500001, 0, 0, 0, 12.500001, 0, 0, 0, 12.5, 0, -0.10275841, 0)
@@ -162,22 +164,49 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_i3pqv")
 
-[node name="Control" type="Control" parent="." unique_id=1947252842]
+[node name="HUD" type="Control" parent="." unique_id=1298503440]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RightCurtain" type="TextureRect" parent="HUD" unique_id=473595600]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1343.0
+offset_right = 1909.0
+offset_bottom = 1508.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_i7cpr")
+
+[node name="LeftCurtain" type="TextureRect" parent="HUD" unique_id=1936546224]
+layout_mode = 0
+offset_left = -124.0
+offset_right = 442.0
+offset_bottom = 1508.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_i7cpr")
+flip_h = true
+
+[node name="Control" type="Control" parent="HUD" unique_id=1947252842]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -100.0
-offset_right = 20.0
-offset_bottom = -60.0
+offset_left = 760.0
+offset_top = 760.0
+offset_right = 800.0
+offset_bottom = 800.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="MaskBorder" type="TextureRect" parent="Control" unique_id=1978104700]
+[node name="MaskBorder" type="TextureRect" parent="HUD/Control" unique_id=1978104700]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -193,7 +222,7 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 texture = ExtResource("11_tigwy")
 
-[node name="MaskSprite" type="TextureRect" parent="Control/MaskBorder" unique_id=70650695]
+[node name="MaskSprite" type="TextureRect" parent="HUD/Control/MaskBorder" unique_id=70650695]
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
