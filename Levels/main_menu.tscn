@@ -38,16 +38,19 @@ transform = Transform3D(0.4771588, 0.8747712, -0.08423089, 0, 0.09584576, 0.9953
 light_energy = 4.01
 shadow_enabled = true
 
-[node name="MainMenuCanvas" parent="." unique_id=1292134461 instance=ExtResource("1_5qvx8")]
-
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_hllw6")]
 
 [node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
 size = Vector2i(1600, 900)
 
-[node name="Player" parent="DitheringViewport/SubViewport" index="0" unique_id=2124719694 instance=ExtResource("3_qor8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053377748, -2.416219, -3.9908686)
+[node name="MainMenuCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1292134461 instance=ExtResource("1_5qvx8")]
+
+[node name="Player" parent="DitheringViewport/SubViewport" index="1" unique_id=2124719694 instance=ExtResource("3_qor8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -2.339, -3.991)
 startDisabled = true
+
+[node name="Camera3D" parent="DitheringViewport/SubViewport/Player/Head" parent_id_path=PackedInt32Array(2124719694, 1061304472) index="0" unique_id=1161783948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, 0)
 
 [node name="HUD" parent="DitheringViewport/SubViewport/Player" index="4" unique_id=1298503440]
 visible = false
