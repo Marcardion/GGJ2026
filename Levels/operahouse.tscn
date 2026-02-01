@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_ulk66"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_yfl12"]
 [ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/lobby.tscn" id="4_ulk66"]
-[ext_resource type="PackedScene" uid="uid://dnc17pks5a45x" path="res://art/3D assets/basemesh_urban_fence_01.glb" id="5_yfl12"]
+[ext_resource type="PackedScene" uid="uid://dfty4ncs4n7ps" path="res://Levels/camarote.tscn" id="6_b144e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64jyp"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,38 +49,56 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5, 13, 9.5)
 size = Vector3(11, 1, 57)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="opera box/floor" unique_id=581730307]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5, 13, -4)
-size = Vector3(15, 1, 68)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="opera box/floor" unique_id=2130175319]
+[node name="CSGBox3D2" type="CSGBox3D" parent="opera box/floor" unique_id=2130175319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5, 13, 9.5)
 size = Vector3(11, 1, 57)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="opera box/floor" unique_id=1898981022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5, 13, -4)
-size = Vector3(15, 1, 68)
-
-[node name="walls" type="CSGCombiner3D" parent="." unique_id=2013524534]
+[node name="walls" type="CSGCombiner3D" parent="opera box" unique_id=2013524534]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="walls" unique_id=2048166084]
+[node name="CSGBox3D" type="CSGBox3D" parent="opera box/walls" unique_id=2048166084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 16, -28)
 size = Vector3(1, 15, 20)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="walls" unique_id=1062726715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, -26)
-size = Vector3(1, 15, 20)
+[node name="CSGBox3D3" type="CSGBox3D" parent="opera box/walls" unique_id=1062726715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, -27.41333)
+size = Vector3(1, 15, 17.17334)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="walls" unique_id=136201385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, 29)
-size = Vector3(1, 15, 20)
+[node name="CSGBox3D4" type="CSGBox3D" parent="opera box/walls" unique_id=136201385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, 29.791016)
+size = Vector3(1, 15, 18.417969)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="walls" unique_id=2046367503]
+[node name="CSGBox3D2" type="CSGBox3D" parent="opera box/walls" unique_id=2046367503]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 16, 28.679495)
 size = Vector3(1, 15, 20)
 
-[node name="basemesh_urban_fence_01" parent="." unique_id=295664832 instance=ExtResource("5_yfl12")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 14, -13)
+[node name="camarote_left" type="Node3D" parent="opera box" unique_id=2095881121]
+
+[node name="camarote" parent="opera box/camarote_left" unique_id=1909939803 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.621197)
+
+[node name="camarote2" parent="opera box/camarote_left" unique_id=194647822 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.38314438)
+
+[node name="camarote3" parent="opera box/camarote_left" unique_id=1953761091 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.520811)
+
+[node name="camarote4" parent="opera box/camarote_left" unique_id=1707833836 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.621235)
+
+[node name="camarote_right" type="Node3D" parent="opera box" unique_id=346428415]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -12)
+
+[node name="camarote" parent="opera box/camarote_right" unique_id=590716301 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.621197)
+
+[node name="camarote2" parent="opera box/camarote_right" unique_id=1811357022 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.38314438)
+
+[node name="camarote3" parent="opera box/camarote_right" unique_id=1899871621 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.520811)
+
+[node name="camarote4" parent="opera box/camarote_right" unique_id=2126774514 instance=ExtResource("6_b144e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.621235)
 
 [editable path="DitheringViewport"]

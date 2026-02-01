@@ -2,4 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dnc17pks5a45x" path="res://art/3D assets/basemesh_urban_fence_01.glb" id="1_bplnl"]
 
-[node name="basemesh_urban_fence_01" unique_id=295664832 instance=ExtResource("1_bplnl")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bplnl"]
+size = Vector3(2.0206776, 1.1, 0.086242676)
+
+[node name="fence" unique_id=295664832 instance=ExtResource("1_bplnl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=199781287]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=806772450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021942854, 0.55, 0)
+shape = SubResource("BoxShape3D_bplnl")

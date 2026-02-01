@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d20btkahol74u"]
+
+[ext_resource type="PackedScene" uid="uid://cv4m7cmwaqxtk" path="res://art/3D assets/chairCushion.glb" id="1_rfnjt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wilf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02mjs"]
+albedo_color = Color(0.22, 0.22, 0.22, 1)
+
+[node name="chairCushion" unique_id=1798316370 instance=ExtResource("1_rfnjt")]
+
+[node name="chairCushion(Clone)" parent="." index="0" unique_id=1523815961]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00083322823, 0.0031812936, -0.0015252233)
+surface_material_override/0 = SubResource("StandardMaterial3D_0wilf")
+surface_material_override/1 = SubResource("StandardMaterial3D_02mjs")

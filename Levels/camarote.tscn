@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dfty4ncs4n7ps"]
+
+[ext_resource type="PackedScene" uid="uid://dxb7c0qp5ivq4" path="res://art/3D assets/fence.tscn" id="1_4wmvl"]
+
+[node name="camarote" type="Node3D" unique_id=1909939803]
+
+[node name="fence" parent="." unique_id=295664832 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 39.18758, 13.508507, -4.738703)
+
+[node name="fence7" parent="." unique_id=1950677362 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(0.760785, 0, 1.8496506, 0, 1, 0, -1.8496506, 0, 0.760785, 32.230564, 13.508507, -1.1116476)
+
+[node name="fence8" parent="." unique_id=763584614 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(0.7502488, 0, -1.853949, 0, 1, 0, 1.853949, 0, 0.7502488, 32.1461, 13.508507, 2.8656876)
+
+[node name="fence9" parent="." unique_id=1750961282 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(1.7554477, 0, -0.9583334, 0, 1, 0, 0.9583334, 0, 1.7554477, 34.919243, 13.508507, 5.7762976)
+
+[node name="fence10" parent="." unique_id=868405813 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(1.8371135, 0, 0.790578, 0, 1, 0, -0.790578, 0, 1.8371135, 35.02931, 13.508507, -3.8633888)
+
+[node name="fence2" parent="." unique_id=1661710640 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 43.21671, 13.508507, -4.738703)
+
+[node name="fence3" parent="." unique_id=2077845926 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 47.20701, 13.508507, -4.738703)
+
+[node name="fence4" parent="." unique_id=147365855 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 38.928097, 13.508507, 6.860754)
+
+[node name="fence5" parent="." unique_id=1729931276 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 42.957226, 13.508507, 6.860754)
+
+[node name="fence6" parent="." unique_id=11270468 instance=ExtResource("1_4wmvl")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 46.947525, 13.508507, 6.860754)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1131193956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 13, 1)
+use_collision = true
+size = Vector3(12, 1, 12)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=756088242]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 37, 13, 1)
+operation = 2
+use_collision = true
+radius = 6.0
+height = 1.0
