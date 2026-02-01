@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dbgvr5fxb86t5" path="res://art/2D assets/lantern_2.png" id="13_i7cpr"]
 [ext_resource type="Texture2D" uid="uid://b0jaf2b5qxjk7" path="res://art/UI/curtain_2.png" id="14_i7cpr"]
 [ext_resource type="Texture2D" uid="uid://kicw1lw108om" path="res://art/UI/SPR_DamageScreen.png" id="19_v1g8r"]
+[ext_resource type="Texture2D" uid="uid://f8lhky30acao" path="res://art/UI/curtain_1.png" id="20_yu5ns"]
+[ext_resource type="Theme" uid="uid://bawy0u7g7ye80" path="res://button_basic.tres" id="21_ywwvu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
 
@@ -98,6 +100,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody3D" unique_id=2124719694 groups=["player"]]
+process_mode = 3
 script = ExtResource("1_4flbx")
 basicCrosshair = ExtResource("3_i3pqv")
 interactCrosshair = ExtResource("3_hqtel")
@@ -205,6 +208,7 @@ offset_right = 352.0
 offset_bottom = 1508.0
 grow_horizontal = 0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("14_i7cpr")
 
 [node name="LeftCurtain" type="TextureRect" parent="HUD" unique_id=1936546224]
@@ -213,6 +217,7 @@ offset_left = -122.0
 offset_right = 444.0
 offset_bottom = 1508.0
 scale = Vector2(0.6, 0.6)
+mouse_filter = 2
 texture = ExtResource("14_i7cpr")
 flip_h = true
 
@@ -228,6 +233,7 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 
 [node name="MaskBorder" type="TextureRect" parent="HUD/Control" unique_id=1978104700]
 layout_mode = 1
@@ -260,4 +266,103 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("12_no26x")
+
+[node name="PauseHUD" type="Control" parent="." unique_id=1599077288]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="PauseHUD" unique_id=645171495]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="PauseHUD" unique_id=1094089385]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1600.0001
+offset_right = 1113.2998
+offset_bottom = 1508.0
+grow_horizontal = 0
+scale = Vector2(0.5977961, 0.5977961)
+mouse_filter = 2
+texture = ExtResource("20_yu5ns")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="PauseHUD" unique_id=309330321]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -411.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("21_ywwvu")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.76862746)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 120
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseHUD" unique_id=1946679582]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = 4.0
+offset_right = 164.0
+offset_bottom = 326.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/separation = 20
+
+[node name="ResumeButton" type="Button" parent="PauseHUD/VBoxContainer" unique_id=942265784]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitGameButton")
+focus_neighbor_bottom = NodePath("../BackToMenuButton")
+theme = ExtResource("21_ywwvu")
+text = "Resume Game"
+
+[node name="BackToMenuButton" type="Button" parent="PauseHUD/VBoxContainer" unique_id=1567183815]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../QuitGameButton")
+theme = ExtResource("21_ywwvu")
+text = "Back to Menu
+"
+
+[node name="QuitGameButton" type="Button" parent="PauseHUD/VBoxContainer" unique_id=1166057108]
+layout_mode = 2
+focus_neighbor_top = NodePath("../BackToMenuButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+theme = ExtResource("21_ywwvu")
+text = "Quit Game
+"
+
+[connection signal="pressed" from="PauseHUD/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseHUD/VBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="PauseHUD/VBoxContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
