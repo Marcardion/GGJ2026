@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://byurwk7j1hn6f"]
+
+[ext_resource type="PackedScene" uid="uid://bdiypj6hkb1jf" path="res://Levels/theaterfloor.tscn" id="1_64jyp"]
+[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_ulk66"]
+[ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_yfl12"]
+[ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/lobby.tscn" id="4_ulk66"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64jyp"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ulk66"]
+sky_material = SubResource("ProceduralSkyMaterial_64jyp")
+
+[sub_resource type="Environment" id="Environment_yfl12"]
+background_mode = 2
+sky = SubResource("Sky_ulk66")
+tonemap_mode = 2
+
+[node name="operahouse" type="Node3D" unique_id=1789490419]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2061096905]
+environment = SubResource("Environment_yfl12")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1572441121]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
+
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_ulk66")]
+
+[node name="Player" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="0" unique_id=2124719694 instance=ExtResource("3_yfl12")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.017745972, 11.070506, -49.008873)
+
+[node name="lobby" parent="." unique_id=1129946871 instance=ExtResource("4_ulk66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67)
+
+[editable path="DitheringViewport"]

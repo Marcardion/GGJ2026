@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://drgn26b4157lm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64jyp"]
+albedo_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulk66"]
+albedo_color = Color(0.21176471, 0.21176471, 0.21176471, 1)
+
+[node name="lobby" type="Node3D" unique_id=1129946871]
+
+[node name="floor" type="CSGBox3D" parent="." unique_id=134380270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 9.742157)
+use_collision = true
+size = Vector3(60, 3, 39.484314)
+
+[node name="door" type="CSGBox3D" parent="." unique_id=826901699]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.416416, 10, 5.905121)
+material_override = SubResource("StandardMaterial3D_64jyp")
+use_collision = true
+size = Vector3(11, 14, 1)
+
+[node name="door2" type="CSGBox3D" parent="." unique_id=1541161792]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 28.583584, 10, 5.905121)
+material_override = SubResource("StandardMaterial3D_ulk66")
+use_collision = true
+size = Vector3(11, 14, 1)
+
+[node name="walls_lobby" type="CSGCombiner3D" parent="." unique_id=1620719495]
+use_collision = true
+
+[node name="wall" type="CSGBox3D" parent="walls_lobby" unique_id=1921133686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 13, -9.817078)
+use_collision = true
+size = Vector3(24, 20, 1)
+
+[node name="wall2" type="CSGBox3D" parent="walls_lobby" unique_id=676465568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 13, -9.817078)
+use_collision = true
+size = Vector3(21, 20, 1)
+
+[node name="wall3" type="CSGBox3D" parent="walls_lobby" unique_id=874253167]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 29, 12, 4.6829224)
+use_collision = true
+size = Vector3(29, 22, 1)
+
+[node name="wall4" type="CSGBox3D" parent="walls_lobby" unique_id=481427817]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31, 11.5, 4.6829224)
+use_collision = true
+size = Vector3(29, 23, 1)
+
+[node name="wall7" type="CSGBox3D" parent="walls_lobby" unique_id=333202291]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -60.4746, 11.5, 33.682922)
+use_collision = true
+size = Vector3(29, 23, 1)
+
+[node name="wall8" type="CSGBox3D" parent="walls_lobby" unique_id=603799701]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 60, 11.5, 33.682922)
+use_collision = true
+size = Vector3(29, 23, 1)
+
+[node name="wall5" type="CSGBox3D" parent="walls_lobby" unique_id=1696539837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.5, 11.5, 19.682922)
+use_collision = true
+size = Vector3(30, 23, 1)
+
+[node name="wall6" type="CSGBox3D" parent="walls_lobby" unique_id=1805529234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 12, 19.682922)
+use_collision = true
+size = Vector3(31, 22, 1)
+
+[node name="staircase_left" type="CSGCombiner3D" parent="." unique_id=863127230]
+use_collision = true
+
+[node name="floor2" type="CSGBox3D" parent="staircase_left" unique_id=1148640163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.253067, 5.4906178, 24.028687)
+use_collision = true
+size = Vector3(10.5, 10, 8)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="staircase_left" unique_id=2086411936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0.51383495, 29)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 3, 20, 10, 20, 0)
+depth = 9.0
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="staircase_left" unique_id=1314191660]
+transform = Transform3D(1.3113413e-07, 0, -0.99999976, 0, 1, 0, 0.99999976, 0, 1.3113413e-07, 49, 8.513835, 28)
+use_collision = true
+polygon = PackedVector2Array(0, -8, 0, 2, 20, 10, 20, -8)
+depth = 10.5
+
+[node name="staircase_right" type="CSGCombiner3D" parent="." unique_id=371807346]
+transform = Transform3D(0.9999875, 0.000928852, 0.0049203592, -0.0009281911, 0.9999996, -0.00013691027, -0.004920484, 0.00013235191, 0.9999879, -109.977295, 0, 0)
+use_collision = true
+
+[node name="floor2" type="CSGBox3D" parent="staircase_right" unique_id=262083816]
+transform = Transform3D(1, -8.185452e-12, 0, -8.6402e-12, 1, 0, 5.029142e-08, 0, 1, 54.454582, 5.4994936, 23.997318)
+use_collision = true
+size = Vector3(9.099121, 10, 8)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="staircase_right" unique_id=2142826698]
+transform = Transform3D(-0.99999887, -0.0017453294, -8.754432e-08, -0.0017453305, 0.99999905, 0, 8.707866e-08, 1.3096724e-10, -1.0000005, 79.04025, 0.5591805, 19.952374)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 3, 20, 10, 20, 0)
+depth = 9.0
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="staircase_right" unique_id=308970403]
+transform = Transform3D(1.3038516e-07, -8.185452e-12, -0.99999976, 0, 1, 2.068532e-10, 1, 0, 1.2945384e-07, 49.755947, 8.514536, 28.003716)
+use_collision = true
+polygon = PackedVector2Array(0, -8, 0, 2, 20, 10, 20, -8)
+depth = 10.5
+
+[node name="pillars" type="CSGCombiner3D" parent="." unique_id=265493976]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="pillars" unique_id=182364312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.958595, 11.901455, -5.4146576)
+radius = 2.0
+height = 20.5
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pillars" unique_id=1545088144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.041405, 12.651455, -5.4146576)
+radius = 2.0
+height = 21.5
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="pillars" unique_id=966112742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.041405, 13.651455, 16.585342)
+radius = 2.0
+height = 21.5
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="pillars" unique_id=632937542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.958595, 11.901455, 16.585342)
+radius = 2.0
+height = 20.5
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="pillars" unique_id=349149298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.958595, 11.901455, 26.585342)
+radius = 2.0
+height = 20.5
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="pillars" unique_id=2121911609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.041405, 11.901455, 26.585342)
+radius = 2.0
+height = 20.5

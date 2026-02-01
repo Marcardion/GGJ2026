@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://bdiypj6hkb1jf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_347x2"]
+albedo_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d05gm"]
+albedo_color = Color(0.14, 0.14, 0.14, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfwoe"]
+albedo_color = Color(0.22, 0.22, 0.22, 1)
+
+[node name="theaterfloor" type="Node3D" unique_id=2088801223]
+
+[node name="wall6" type="CSGBox3D" parent="." unique_id=1924481782]
+transform = Transform3D(-0.75, 0, 6.556708e-08, 0, 0.75, 0, -6.556708e-08, 0, -0.75, 0, 11, 37)
+material_override = SubResource("StandardMaterial3D_347x2")
+use_collision = true
+size = Vector3(40, 25, 1)
+
+[node name="walls" type="CSGCombiner3D" parent="." unique_id=2097857444]
+use_collision = true
+
+[node name="wall" type="CSGBox3D" parent="walls" unique_id=1141017991]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 11, 38)
+use_collision = true
+size = Vector3(130, 30, 1)
+
+[node name="wall2" type="CSGBox3D" parent="walls" unique_id=51335594]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -28.87526, 11, -37.94164)
+use_collision = true
+size = Vector3(54.66736, 30, 1)
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="walls/wall2" unique_id=1799194930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.374737, 0.98478794, 42.252014)
+radius = 2.0
+height = 30.0
+
+[node name="wall5" type="CSGBox3D" parent="walls" unique_id=301771349]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 28.860794, 11, -37.92563)
+use_collision = true
+size = Vector3(54.628784, 30, 1)
+
+[node name="wall3" type="CSGBox3D" parent="walls" unique_id=1341197969]
+transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, 49, 11, 0.43922424)
+use_collision = true
+size = Vector3(101.171265, 30, 1)
+
+[node name="wall4" type="CSGBox3D" parent="walls" unique_id=42384930]
+transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, -49, 11, 0.3728943)
+use_collision = true
+size = Vector3(101.29028, 30, 1)
+
+[node name="Stage" type="CSGCombiner3D" parent="." unique_id=871173615]
+
+[node name="stage" type="CSGBox3D" parent="Stage" unique_id=648430280]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1, 29)
+size = Vector3(60, 2, 25)
+
+[node name="stage_lateral2" type="CSGBox3D" parent="Stage" unique_id=581752607]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -35.5, 12, 34)
+size = Vector3(35, 30, 10)
+
+[node name="stage_lateral" type="CSGBox3D" parent="Stage" unique_id=1089362085]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 35.5, 12, 34)
+size = Vector3(35, 30, 10)
+
+[node name="floor" type="CSGBox3D" parent="." unique_id=103852360]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_d05gm")
+use_collision = true
+size = Vector3(130, 1, 100)
+
+[node name="carpet" type="CSGBox3D" parent="." unique_id=177455806]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_cfwoe")
+use_collision = true
+size = Vector3(5, 1.1, 100)
+
+[node name="pillars" type="CSGCombiner3D" parent="." unique_id=871913220]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+use_collision = true
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="pillars" unique_id=1974037065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.811226, 15.651455, -39.234848)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="pillars" unique_id=1595620008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.811226, 15.651455, -44.234848)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="pillars" unique_id=173688655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.522108, 15.651455, -44.234848)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="pillars" unique_id=324126328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.188774, 15.651455, -39.234848)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="pillars" unique_id=852541864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.811226, 15.651455, -27.234848)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="pillars" unique_id=914440552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.811226, 15.651455, -7.3892555)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="pillars" unique_id=1275281774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.811226, 15.651455, 10.975817)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="pillars" unique_id=1908389867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.14456, 15.651455, 30.419249)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="pillars" unique_id=2049892427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.041405, 15.651455, -25.260246)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="pillars" unique_id=361701396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.374737, 15.651455, 9.950418)
+radius = 2.0
+height = 30.0
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="pillars" unique_id=1177399299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.041405, 15.651455, 30.39385)
+radius = 2.0
+height = 30.0
