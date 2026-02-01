@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b5k4ymi78se45"]
 
+[ext_resource type="Script" uid="uid://d31sax5mkk41a" path="res://BaseScenes/game_hud_canvas.gd" id="1_ebplf"]
+
 [node name="GameHUDCanvas" type="CanvasLayer" unique_id=1627543730 groups=["gamehud"]]
+script = ExtResource("1_ebplf")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1259476011]
 anchors_preset = 15

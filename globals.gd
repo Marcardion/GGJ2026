@@ -1,7 +1,7 @@
 extends Node
 
 var player_enabled = true
-@onready var gameHUD : CanvasLayer = get_tree().get_first_node_in_group("gamehud")
+@onready var gameHUD : CanvasLayer
 
 var fadeOutTween : Tween
 
@@ -18,7 +18,6 @@ func change_scene(scenepath):
 	get_tree().change_scene_to_file(scenepath)
 	await get_tree().scene_changed
 	gameHUD = get_tree().get_first_node_in_group("gamehud")
-	print(gameHUD.name)
 
 func disable_player_control():
 	player_enabled = false

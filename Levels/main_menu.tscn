@@ -45,7 +45,10 @@ size = Vector2i(1600, 900)
 
 [node name="MainMenuCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1292134461 instance=ExtResource("1_5qvx8")]
 
-[node name="Player" parent="DitheringViewport/SubViewport" index="1" unique_id=2124719694 instance=ExtResource("3_qor8d")]
+[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="1" unique_id=1627543730 instance=ExtResource("8_qor8d")]
+startBlackScreen = false
+
+[node name="Player" parent="DitheringViewport/SubViewport" index="2" unique_id=2124719694 instance=ExtResource("3_qor8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -2.339, -3.991)
 startDisabled = true
 
@@ -100,7 +103,7 @@ shape = SubResource("BoxShape3D_glbon")
 
 [node name="InteractableSceneChange" parent="Background" unique_id=1747226719 instance=ExtResource("6_1brcv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058993638, -0.8653683, -7.5970907)
-scenePath = "res://test_level.tscn"
+scenePath = "res://Levels/operahouse.tscn"
 
 [node name="MeshInstance3D" parent="Background/InteractableSceneChange" index="0" unique_id=481255971]
 visible = false
@@ -109,8 +112,6 @@ visible = false
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.049043506, 0.10545546, -0.24077892)
 billboard = 1
 texture = ExtResource("7_hllw6")
-
-[node name="GameHUDCanvas" parent="." unique_id=1627543730 instance=ExtResource("8_qor8d")]
 
 [editable path="DitheringViewport"]
 [editable path="DitheringViewport/SubViewport/Player"]
