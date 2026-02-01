@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cpau3yawp7ymc"]
+
+[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="1_3nl8s"]
+[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="2_sebih"]
+[ext_resource type="PackedScene" uid="uid://bsaklqobxkbdb" path="res://BaseScenes/message_base.tscn" id="3_sebih"]
+
+[node name="FirstMessage" type="Node3D" unique_id=1041932492]
+
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("1_3nl8s")]
+
+[node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
+size = Vector2i(1600, 900)
+
+[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1627543730 instance=ExtResource("2_sebih")]
+
+[node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("3_sebih")]
+shouldLoadScene = true
+loadScenePath = "res://Levels/operahouse.tscn"
+
+[editable path="DitheringViewport"]
+[editable path="DitheringViewport/SubViewport/GameHUDCanvas/MessageBase"]

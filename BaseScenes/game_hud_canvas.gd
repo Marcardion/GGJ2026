@@ -9,3 +9,5 @@ func _ready():
 	if startBlackScreen:
 		colorRect.color.a = 1
 		Globals.fadeIn()
+	else:
+		colorRect.color.a = 0
