@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7v62jdurwgsk"]
+
+[ext_resource type="Script" uid="uid://kn5avsnwskg8" path="res://Scripts/Actions/action_fade_load_scene.gd" id="1_a8ljk"]
+
+[node name="ActionFadeLoadScene" type="Node3D" unique_id=1063656550]
+script = ExtResource("1_a8ljk")

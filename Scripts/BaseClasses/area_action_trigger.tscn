@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ty0g8h7vk1kr"]
 
 [ext_resource type="Script" uid="uid://con545irxepbr" path="res://Scripts/BaseClasses/area_action_trigger.gd" id="1_r7tq1"]
-[ext_resource type="AudioStream" uid="uid://di1ley30tor26" path="res://Sounds/revolver_shot1.wav" id="2_2d5pu"]
+[ext_resource type="AudioStream" uid="uid://dj3j3a7unw75g" path="res://Sounds/sfx_bell_pickup.wav" id="2_c3pew"]
 [ext_resource type="Texture2D" uid="uid://dyp4g2cyjffm7" path="res://art/2D assets/items/ItemNeedle.png" id="3_c3pew"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qanbm"]
@@ -18,7 +18,7 @@ shape = SubResource("SphereShape3D_qanbm")
 debug_color = Color(0.97940964, 0, 0.38436717, 1)
 
 [node name="EnterSFX" type="AudioStreamPlayer3D" parent="." unique_id=1335859954]
-stream = ExtResource("2_2d5pu")
+stream = ExtResource("2_c3pew")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=259202999]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)

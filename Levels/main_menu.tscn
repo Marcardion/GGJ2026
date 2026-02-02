@@ -5,9 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_qor8d"]
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="4_6e2af"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="5_yw3yt"]
-[ext_resource type="PackedScene" uid="uid://1gu22khgeie1" path="res://ObjectScenes/interactable_sceneChange.tscn" id="6_1brcv"]
+[ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="7_6e2af"]
 [ext_resource type="Texture2D" uid="uid://c07plpy2tuavl" path="res://art/2D assets/mask_3faces.png" id="7_hllw6"]
 [ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="8_qor8d"]
+[ext_resource type="AudioStream" uid="uid://db3f25fpbf46b" path="res://Sounds/sfx_bell_cutscene.wav" id="9_1brcv"]
+[ext_resource type="PackedScene" uid="uid://7v62jdurwgsk" path="res://Scripts/Actions/action_fade_load_scene.tscn" id="9_yw3yt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jix8l"]
 sky_top_color = Color(0.047058824, 0.050980393, 0.078431375, 1)
@@ -55,7 +57,7 @@ startDisabled = true
 [node name="Camera3D" parent="DitheringViewport/SubViewport/Player/Head" parent_id_path=PackedInt32Array(2124719694, 1061304472) index="0" unique_id=1161783948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0, 0)
 
-[node name="HUD" parent="DitheringViewport/SubViewport/Player" index="4" unique_id=1298503440]
+[node name="HUD" parent="DitheringViewport/SubViewport/Player" index="7" unique_id=1298503440]
 visible = false
 
 [node name="Background" type="Node3D" parent="." unique_id=275512452]
@@ -101,18 +103,20 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -8.879554)
 shape = SubResource("BoxShape3D_glbon")
 
-[node name="InteractableSceneChange" parent="Background" unique_id=1747226719 instance=ExtResource("6_1brcv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058993638, -0.8653683, -7.5970907)
-scenePath = "res://Levels/firstMessage.tscn"
+[node name="InteractableObject" parent="Background" unique_id=836935796 node_paths=PackedStringArray("actionArray") instance=ExtResource("7_6e2af")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009950131, -0.75991285, -7.8378696)
+actionArray = [NodePath("ActionFadeLoadScene")]
 
-[node name="MeshInstance3D" parent="Background/InteractableSceneChange" index="0" unique_id=481255971]
-visible = false
-
-[node name="Sprite3D" type="Sprite3D" parent="Background/InteractableSceneChange" unique_id=1821694450]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.049043506, 0.10545546, -0.24077892)
-billboard = 1
+[node name="Sprite3D" parent="Background/InteractableObject" index="1" unique_id=372624617]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 texture = ExtResource("7_hllw6")
+
+[node name="InteractSFX" parent="Background/InteractableObject" index="2" unique_id=1932305958]
+stream = ExtResource("9_1brcv")
+
+[node name="ActionFadeLoadScene" parent="Background/InteractableObject" unique_id=1063656550 instance=ExtResource("9_yw3yt")]
+scenePath = "res://Levels/firstMessage.tscn"
 
 [editable path="DitheringViewport"]
 [editable path="DitheringViewport/SubViewport/Player"]
-[editable path="Background/InteractableSceneChange"]
+[editable path="Background/InteractableObject"]

@@ -1,6 +1,6 @@
-extends Interactable
+extends BasicAction
 
 @export var scenePath : String
 
-func Interact():
+func DoAction():
 	Globals.fadeOutLoadScene(scenePath)
