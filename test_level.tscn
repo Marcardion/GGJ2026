@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://g0x208q7ui4h" path="res://Scripts/Actions/action_destroy_object.tscn" id="15_4bgwg"]
 [ext_resource type="PackedScene" uid="uid://bjmf6vb6mdqjv" path="res://Scripts/Actions/action_spawn_object.tscn" id="16_7fqlb"]
 [ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://BaseScenes/enemy.tscn" id="17_e8hb2"]
+[ext_resource type="PackedScene" uid="uid://dfw28b5y53du0" path="res://ObjectScenes/3faces_enemy.tscn" id="18_e8hb2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -84,7 +85,7 @@ transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 0.5, -1.7518605, -1.1780461, -8.
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -20.727552, -2.0915475, -3.340574)
 
 [node name="Enemy3" parent="." unique_id=609934053 instance=ExtResource("13_38et7")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.864292, -2.2150874, 9.374346)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.864292, -1.9275788, 9.374346)
 
 [node name="AreaActionTrigger" parent="." unique_id=2132233610 node_paths=PackedStringArray("actionArray") instance=ExtResource("13_b7ax5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1482909, -1.2011695, -6.711911)
@@ -93,11 +94,6 @@ actionArray = [NodePath("ActionOpenMessage"), NodePath("ActionDestroyObject"), N
 [node name="ActionOpenMessage" parent="AreaActionTrigger" unique_id=1148073238 instance=ExtResource("14_b7ax5")]
 actionMessageText = "This is a test message"
 actionMessageWaitTime = 1.0
-
-[node name="Sprite3D2" type="Sprite3D" parent="AreaActionTrigger" unique_id=250699326]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-billboard = 1
-texture = ExtResource("1_gbhdq")
 
 [node name="ActionDestroyObject" parent="AreaActionTrigger" unique_id=939660399 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("15_4bgwg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1482909, 1.2011695, 6.711911)
@@ -109,6 +105,10 @@ spawnNode = NodePath("../../SpawnPoint")
 
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=576865999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8499417, -2.1788158, -14.511139)
+
+[node name="OldManEnemy" parent="." unique_id=96234412 instance=ExtResource("18_e8hb2")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.765833, -2.3322227, -18.339863)
+attack_range = 3.5
 
 [editable path="DitheringViewport"]
 [editable path="AreaActionTrigger"]

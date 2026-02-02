@@ -6,6 +6,22 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1ppv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw0bi"]
+atlas = ExtResource("1_st1b1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45bvm"]
+atlas = ExtResource("1_st1b1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gosv"]
+atlas = ExtResource("1_st1b1")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xav71"]
+atlas = ExtResource("1_st1b1")
+region = Rect2(768, 0, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wujgv"]
 atlas = ExtResource("1_st1b1")
 region = Rect2(768, 0, 256, 256)
@@ -52,6 +68,23 @@ region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5p3ml"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw0bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45bvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gosv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xav71")
+}],
+"loop": false,
+"name": &"aggro",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wujgv")
@@ -119,7 +152,7 @@ shape = SubResource("CapsuleShape3D_b1ppv")
 transform = Transform3D(0.854239, 0, 0, 0, 0.854239, 0, 0, 0, 0.854239, 0, 1.09408, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_5p3ml")
-animation = &"attack"
+animation = &"aggro"
 autoplay = "idle"
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
