@@ -19,6 +19,13 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.105882354, 0.10980392, 0.19215687, 0.47058824)
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=437560414]
+offset_left = 33.0
+offset_top = 311.0
+offset_right = 1571.0
+offset_bottom = 900.0
+color = Color(0, 0, 0, 0.39215687)
+
 [node name="UI" type="Control" parent="." unique_id=1514909993]
 layout_mode = 3
 anchors_preset = 15
@@ -54,55 +61,64 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="UI" unique_id=1608845142]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -779.0
-offset_top = -618.0
-offset_right = 563.0
-offset_bottom = 182.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_left = 0.0375
+anchor_top = 1.0655556
+anchor_right = 0.0375
+anchor_bottom = 1.0655556
+offset_top = -632.0
+offset_right = 1054.0
+offset_bottom = 168.0
 grow_vertical = 0
 theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=764791296]
-custom_minimum_size = Vector2(800, 800)
+clip_contents = false
+custom_minimum_size = Vector2(720, 512)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("3_wdco3")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "SFXs
-● SOUND EFFECTS FROM FREESOUND.ORG
-	— 05934 heels walking on pavement - looping.wav by Robinhood76 -- https://freesound.org/s/318900/ -- License: Attribution NonCommercial 4.0
-	— grunting by Wellorok -- https://freesound.org/s/758044/ -- License: Creative Commons 0
-	— What_Evanscreams2.wav by mousepatrol -- https://freesound.org/s/405272/ -- License: Attribution 4.0
-	— PiercingScreamWoman01 by HarqoGames -- https://freesound.org/s/733478/ -- License: Attribution 4.0
-	— Pain- man- wheezing 4 by Valerie-Vivegnis -- https://freesound.org/s/768188/ -- License: Attribution 4.0
-	— Wind Chime, Tolling, A.wav by InspectorJ -- https://freesound.org/s/411729/ -- License: Attribution 4.0
-	— High-pitched Gong Tolling.mp3 by Yin_Yang_Jake007 -- https://freesound.org/s/415206/ -- License: Creative Commons 0
-	— Deep Gong Tolling.mp3 by Yin_Yang_Jake007 -- https://freesound.org/s/415200/ -- License: Creative Commons 0
+text = "● SOUND EFFECTS FROM FREESOUND.ORG
+— 05934 heels walking on pavement - looping.wav by Robinhood76 - https://freesound.org/s/318900/ 
+— grunting by Wellorok - https://freesound.org/s/758044/ 
+— What_Evanscreams2.wav by mousepatrol - https://freesound.org/s/405272/
+— PiercingScreamWoman01 by HarqoGames - https://freesound.org/s/733478/
+— Pain- man- wheezing 4 by Valerie-Vivegnis - https://freesound.org/s/768188/ 
+— Wind Chime, Tolling, A.wav by InspectorJ - https://freesound.org/s/411729/ 
+— High-pitched Gong Tolling.mp3 by Yin_Yang_Jake007 - https://freesound.org/s/415206/ 
+— Deep Gong Tolling.mp3 by Yin_Yang_Jake007 - https://freesound.org/s/415200/ 
 "
 autowrap_trim_flags = 0
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=1394821361]
-custom_minimum_size = Vector2(512, 256)
+clip_contents = false
+custom_minimum_size = Vector2(720, 512)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("3_wdco3")
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "MUSICS
-● MUSIC FROM CLASSICALS.DE
-	— Bach - Toccata and Fugue in D minor - BWV 565
-	— Classicals.de - Satie - Gnossienne No. 1 
-	— Classicals.de - Satie - Gymnopedie No. 1 - Arranged for Music Box 
-	— Classicals.de - Schubert - Erlkönig - Op. 1, D. 328 
+text = "MUSIC FROM CLASSICALS.DE
+— Bach - Toccata and Fugue in D minor - BWV 565
+— Classicals.de - Satie - Gnossienne No. 1 
+— Classicals.de - Satie - Gymnopedie No. 1 - Arranged for Music Box 
+— Classicals.de - Schubert - Erlkönig - Op. 1, D. 328 
 	Arranged for Strings 
-	— Classicals.de - Tchaikovsky - Swan Lake, Op. 20 – Act II, No. 13d - 	Dance of the Little Swans - Arranged for Solo Piano
+— Classicals.de - Tchaikovsky - Swan Lake, Op. 20 – Act II, No. 13d - Dance of the Little Swans - Arranged for Solo Piano
 
+3D ASSETS FROM
+— Kenney Furniture Kit - www.kenney.nl
+— The Base Mesh - www.thebasemesh.com
 "
 autowrap_trim_flags = 0
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="VBoxContainer3" type="HBoxContainer" parent="UI" unique_id=698384819]
 layout_mode = 1
@@ -139,7 +155,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -560.0
+offset_left = -488.0
 offset_top = -141.0
 offset_right = -48.0
 offset_bottom = -47.0
