@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://jkhypusdxnb0" path="res://art/2D assets/sprites/enemies/enemy_3faces_death.png" id="4_lcftk"]
 [ext_resource type="Texture2D" uid="uid://b6ohrakepp5y3" path="res://art/2D assets/sprites/enemies/enemy_3faces_walkside.png" id="5_5volj"]
 [ext_resource type="Texture2D" uid="uid://oih7ieu461y4" path="res://art/2D assets/sprites/enemies/enemy_3faces_walk.png" id="6_8p37d"]
-[ext_resource type="AudioStream" uid="uid://cmohdgbnkhano" path="res://Sounds/enemy/sfx_oldman_dying.wav" id="7_bgkbj"]
-[ext_resource type="AudioStream" uid="uid://gbknoarmqwxs" path="res://Sounds/enemy/sfx_oldman_hurt.wav" id="8_t1qlq"]
+[ext_resource type="AudioStream" uid="uid://dyyku1xjhuuc6" path="res://Sounds/enemy/sfx_3faces_dying.wav" id="7_5volj"]
+[ext_resource type="AudioStream" uid="uid://cs8frcc6yv0lm" path="res://Sounds/enemy/sfx_3faces_hurt.wav" id="8_8p37d"]
 [ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="9_5volj"]
 [ext_resource type="Texture2D" uid="uid://ca0ghlfxg0k4c" path="res://art/2D assets/items/ItemDoctorRecipe.png" id="10_8p37d"]
 [ext_resource type="PackedScene" uid="uid://7v62jdurwgsk" path="res://Scripts/Actions/action_fade_load_scene.tscn" id="11_h8phr"]
@@ -198,11 +198,13 @@ frame = 4
 frame_progress = 1.0
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
-stream = ExtResource("7_bgkbj")
+stream = ExtResource("7_5volj")
+volume_db = 1.5
 
 [node name="DamageSound" type="AudioStreamPlayer3D" parent="." unique_id=302149201]
 transform = Transform3D(1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0)
-stream = ExtResource("8_t1qlq")
+stream = ExtResource("8_8p37d")
+volume_db = 1.0
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1087820324]
 
