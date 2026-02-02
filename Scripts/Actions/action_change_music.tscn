@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkmpxks6l7luu"]
+
+[ext_resource type="Script" uid="uid://dwx2hx6anylar" path="res://Scripts/Actions/action_change_music.gd" id="1_jhvjr"]
+
+[node name="ActionChangeMusic" type="Node3D" unique_id=1972903241]
+script = ExtResource("1_jhvjr")

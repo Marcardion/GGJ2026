@@ -9,6 +9,12 @@ func _input(event):
 	if event.is_action_pressed("Escape"):
 		return_to_menu()
 
+func changeMusic(newMusic : AudioStream):
+	var musicPlayer : AudioStreamPlayer2D = gameHUD.get_child(1)
+	musicPlayer.stop()
+	musicPlayer.stream = newMusic
+	musicPlayer.play()
+
 func return_to_menu():
 	change_scene("res://Levels/main_menu.tscn")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
