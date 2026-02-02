@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://dodwhr47by5y7"]
+
+[ext_resource type="Script" uid="uid://c8bptirtbgkqh" path="res://BaseScenes/main_menu_canvas.gd" id="1_uevtf"]
+[ext_resource type="FontFile" uid="uid://ctutf16epe2ca" path="res://art/UI/fonts/Aladin-Regular.ttf" id="2_q8sn7"]
+[ext_resource type="FontFile" uid="uid://btinqjvygd146" path="res://art/UI/fonts/Amarante-Regular.ttf" id="3_wdco3"]
+[ext_resource type="Theme" uid="uid://bawy0u7g7ye80" path="res://button_basic.tres" id="4_uevtf"]
+[ext_resource type="Texture2D" uid="uid://cgmeknmfsjskn" path="res://art/UI/Logo/logo_BladesGuidance01.png" id="5_a1gjc"]
+
+[sub_resource type="Theme" id="Theme_q8sn7"]
+
+[node name="MainMenuCanvas" type="CanvasLayer" unique_id=1292134461]
+script = ExtResource("1_uevtf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1312735308]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.105882354, 0.10980392, 0.19215687, 0.47058824)
+
+[node name="UI" type="Control" parent="." unique_id=1514909993]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI" unique_id=1184942295]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 328.0
+grow_horizontal = 2
+theme_override_constants/separation = -30
+alignment = 1
+
+[node name="Title" type="Label" parent="UI/VBoxContainer2" unique_id=908554212]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q8sn7")
+theme_override_font_sizes/font_size = 160
+text = "HoLoFoTe"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="UI/VBoxContainer2" unique_id=190686013]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wdco3")
+theme_override_font_sizes/font_size = 40
+text = "under the spotlight "
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="UI" unique_id=1608845142]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -275.0
+offset_right = 140.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=764791296]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_wdco3")
+bbcode_enabled = true
+text = "SFXs
+● SOUND EFFECTS FROM FREESOUND.ORG
+	— 05934 heels walking on pavement - looping.wav by Robinhood76 -- https://freesound.org/s/318900/ -- License: Attribution NonCommercial 4.0
+	— grunting by Wellorok -- https://freesound.org/s/758044/ -- License: Creative Commons 0
+	— What_Evanscreams2.wav by mousepatrol -- https://freesound.org/s/405272/ -- License: Attribution 4.0
+	— PiercingScreamWoman01 by HarqoGames -- https://freesound.org/s/733478/ -- License: Attribution 4.0
+	— Pain- man- wheezing 4 by Valerie-Vivegnis -- https://freesound.org/s/768188/ -- License: Attribution 4.0
+	— Wind Chime, Tolling, A.wav by InspectorJ -- https://freesound.org/s/411729/ -- License: Attribution 4.0
+	— High-pitched Gong Tolling.mp3 by Yin_Yang_Jake007 -- https://freesound.org/s/415206/ -- License: Creative Commons 0
+	— Deep Gong Tolling.mp3 by Yin_Yang_Jake007 -- https://freesound.org/s/415200/ -- License: Creative Commons 0
+"
+autowrap_trim_flags = 0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer" unique_id=479285170]
+layout_mode = 2
+theme = SubResource("Theme_q8sn7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/VBoxContainer/HBoxContainer" unique_id=1394821361]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_wdco3")
+bbcode_enabled = true
+text = "MUSICS
+● MUSIC FROM CLASSICALS.DE
+	— Bach - Toccata and Fugue in D minor - BWV 565
+	— Classicals.de - Satie - Gnossienne No. 1 
+	— Classicals.de - Satie - Gymnopedie No. 1 - Arranged for Music Box 
+	— Classicals.de - Schubert - Erlkönig - Op. 1, D. 328 
+	Arranged for Strings 
+	— Classicals.de - Tchaikovsky - Swan Lake, Op. 20 – Act II, No. 13d - 	Dance of the Little Swans - Arranged for Solo Piano
+
+"
+autowrap_trim_flags = 0
+
+[node name="Button" type="Button" parent="UI/VBoxContainer/HBoxContainer" unique_id=279364399]
+layout_mode = 2
+theme = ExtResource("4_uevtf")
+text = "Back to Main Menu"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="UI" unique_id=698384819]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -418.0
+offset_right = -42.0
+offset_bottom = 289.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer3" unique_id=793769651]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_a1gjc")
+expand_mode = 5
+
+[node name="BaseCredits" type="Label" parent="UI/VBoxContainer3" unique_id=1130084955]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wdco3")
+theme_override_font_sizes/font_size = 32
+text = "Developed By
+Laila Alves
+Marcelo Costa"
