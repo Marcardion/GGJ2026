@@ -9,7 +9,8 @@ albedo_color = Color(0.22, 0.22, 0.22, 1)
 
 [node name="chairCushion" unique_id=1798316370 instance=ExtResource("1_rfnjt")]
 
-[node name="chairCushion(Clone)" parent="." index="0" unique_id=1523815961]
+[node name="chairCushion(Clone)" parent="." index="0" unique_id=1340680780]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00083322823, 0.0031812936, -0.0015252233)
+cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_0wilf")
 surface_material_override/1 = SubResource("StandardMaterial3D_02mjs")

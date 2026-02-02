@@ -67,13 +67,6 @@ func _ready():
 		gunSprite.play("idle_hand")
 		canShoot = false
 
-
-func _input(event):
-	if Globals.player_enabled == false:
-		return
-	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _unhandled_input(event):
 	if Globals.player_enabled == false:
 		return
