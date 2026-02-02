@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://t3jcswl4gyx3"]
+
+[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="1_tmclh"]
+[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="2_y6d5g"]
+[ext_resource type="PackedScene" uid="uid://bsaklqobxkbdb" path="res://BaseScenes/message_base.tscn" id="3_xpvkf"]
+
+[node name="LastMessage" type="Node3D" unique_id=1041932492]
+
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("1_tmclh")]
+
+[node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
+size = Vector2i(1600, 900)
+
+[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1627543730 instance=ExtResource("2_y6d5g")]
+
+[node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("3_xpvkf")]
+shouldLoadScene = true
+messageText = "How long will you need to hide behind these masks?"
+loadScenePath = "res://Levels/main_menu.tscn"
+
+[editable path="DitheringViewport"]
+[editable path="DitheringViewport/SubViewport/GameHUDCanvas/MessageBase"]

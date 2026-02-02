@@ -175,6 +175,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6226826e-07, -12, -33)
 
 [node name="chair_row" type="Node3D" parent="." unique_id=1844828747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1380701, -0.40337992, 0)
+visible = false
 
 [node name="chairCushion" parent="chair_row" unique_id=1798316370 instance=ExtResource("2_sqcg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22972, 0.375, 12.368596)
@@ -193,6 +194,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.844046, 0.375, 12.368596)
 
 [node name="chair_row2" type="Node3D" parent="." unique_id=1712291269]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.879745, -0.40337992, 0)
+visible = false
 
 [node name="chairCushion" parent="chair_row2" unique_id=1218371627 instance=ExtResource("2_sqcg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22972, 0.375, 12.368596)
@@ -211,6 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.844046, 0.375, 12.368596)
 
 [node name="chair_row3" type="Node3D" parent="." unique_id=964254420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1380701, -0.40337992, -7.327688)
+visible = false
 
 [node name="chairCushion" parent="chair_row3" unique_id=1476844457 instance=ExtResource("2_sqcg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22972, 0.375, 12.368596)
@@ -229,6 +232,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.844046, 0.375, 12.368596)
 
 [node name="chair_row4" type="Node3D" parent="." unique_id=961289104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.879745, -0.40337992, -7.327688)
+visible = false
 
 [node name="chairCushion" parent="chair_row4" unique_id=1663303692 instance=ExtResource("2_sqcg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22972, 0.375, 12.368596)
@@ -247,6 +251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.844046, 0.375, 12.368596)
 
 [node name="chair_row5" type="Node3D" parent="." unique_id=1101797388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1380701, -0.40337992, -15.170214)
+visible = false
 
 [node name="chairCushion" parent="chair_row5" unique_id=2019832595 instance=ExtResource("2_sqcg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22972, 0.375, 12.368596)
@@ -265,6 +270,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.844046, 0.375, 12.368596)
 
 [node name="chair_row6" type="Node3D" parent="." unique_id=1943173730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.879745, -0.40337992, -15.170214)
+visible = false
 
 [node name="chairCushion" parent="chair_row6" unique_id=441965317 instance=ExtResource("2_sqcg7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22972, 0.375, 12.368596)

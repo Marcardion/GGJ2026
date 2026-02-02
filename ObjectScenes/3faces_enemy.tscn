@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://oih7ieu461y4" path="res://art/2D assets/sprites/enemies/enemy_3faces_walk.png" id="6_8p37d"]
 [ext_resource type="AudioStream" uid="uid://cmohdgbnkhano" path="res://Sounds/enemy/sfx_oldman_dying.wav" id="7_bgkbj"]
 [ext_resource type="AudioStream" uid="uid://gbknoarmqwxs" path="res://Sounds/enemy/sfx_oldman_hurt.wav" id="8_t1qlq"]
+[ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="9_5volj"]
+[ext_resource type="Texture2D" uid="uid://ca0ghlfxg0k4c" path="res://art/2D assets/items/ItemDoctorRecipe.png" id="10_8p37d"]
+[ext_resource type="PackedScene" uid="uid://7v62jdurwgsk" path="res://Scripts/Actions/action_fade_load_scene.tscn" id="11_h8phr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1ppv"]
 radius = 0.76953125
@@ -167,7 +170,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="OldManEnemy" type="CharacterBody3D" unique_id=1414180886]
+[node name="3FacesEnemy" type="CharacterBody3D" unique_id=1414180886 node_paths=PackedStringArray("itemToSpawn")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("1_ultxx")
@@ -177,6 +180,8 @@ attack_range = 4.5
 attack_damage = 2.0
 attack_cooldown = 0.8
 detection_range = 50
+shouldSpawnItem = true
+itemToSpawn = NodePath("InteractableObject")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682257078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7367821, 0)
@@ -187,9 +192,10 @@ debug_color = Color(0.7560999, 0, 0.2971994, 0.41960785)
 transform = Transform3D(0.854239, 0, 0, 0, 0.854239, 0, 0, 0, 0.854239, 0, 2.0928895, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_5p3ml")
-animation = &"walking"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.80976623
+frame = 4
+frame_progress = 1.0
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
 stream = ExtResource("7_bgkbj")
@@ -199,3 +205,19 @@ transform = Transform3D(1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0, 1.3333334, 0, 0,
 stream = ExtResource("8_t1qlq")
 
 [node name="AttackCooldown" type="Timer" parent="." unique_id=1087820324]
+
+[node name="InteractableObject" parent="." unique_id=836935796 node_paths=PackedStringArray("actionArray") instance=ExtResource("9_5volj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7970289, 0)
+visible = false
+actionArray = [NodePath("ActionFadeLoadScene")]
+
+[node name="CollisionShape3D" parent="InteractableObject" index="0" unique_id=1148073172]
+disabled = true
+
+[node name="Sprite3D" parent="InteractableObject" index="1" unique_id=372624617]
+texture = ExtResource("10_8p37d")
+
+[node name="ActionFadeLoadScene" parent="InteractableObject" unique_id=1063656550 instance=ExtResource("11_h8phr")]
+scenePath = "res://Levels/lastMessage.tscn"
+
+[editable path="InteractableObject"]

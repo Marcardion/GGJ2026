@@ -5,9 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_ulk66"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_yfl12"]
 [ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/lobby.tscn" id="4_ulk66"]
+[ext_resource type="PackedScene" uid="uid://bsaklqobxkbdb" path="res://BaseScenes/message_base.tscn" id="4_usp4g"]
 [ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="4_xqtc4"]
+[ext_resource type="PackedScene" uid="uid://g0x208q7ui4h" path="res://Scripts/Actions/action_destroy_object.tscn" id="6_6wpvm"]
+[ext_resource type="Texture2D" uid="uid://q17ph8qrcgqt" path="res://art/2D assets/items/ItemRottenRibbon.png" id="6_426al"]
 [ext_resource type="PackedScene" uid="uid://blsnicisvasmh" path="res://Levels/opera_box.tscn" id="6_b144e"]
+[ext_resource type="PackedScene" uid="uid://il2rufesp4ol" path="res://Scripts/Actions/action_open_message.tscn" id="7_426al"]
 [ext_resource type="PackedScene" uid="uid://des6otmhr8wwk" path="res://Levels/balcony.tscn" id="8_h88kf"]
+[ext_resource type="Texture2D" uid="uid://c54awaj2i4t56" path="res://art/2D assets/items/ItemBrokenFrame.png" id="9_426al"]
+[ext_resource type="Texture2D" uid="uid://dyp4g2cyjffm7" path="res://art/2D assets/items/ItemNeedle.png" id="10_7k2bu"]
+[ext_resource type="Texture2D" uid="uid://74abkkvrm77" path="res://art/2D assets/items/ItemBrokenDoll.png" id="11_jyidj"]
+[ext_resource type="PackedScene" uid="uid://bjmf6vb6mdqjv" path="res://Scripts/Actions/action_spawn_object.tscn" id="12_g4l0h"]
+[ext_resource type="PackedScene" uid="uid://dfw28b5y53du0" path="res://ObjectScenes/3faces_enemy.tscn" id="13_g4l0h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64jyp"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,17 +46,98 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.01
 
 [node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="1" unique_id=1627543730 instance=ExtResource("1_b144e")]
 
-[node name="InteractableObject1" parent="." unique_id=836935796 instance=ExtResource("4_xqtc4")]
+[node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("4_usp4g")]
+visible = false
+
+[node name="Door1" type="Node3D" parent="." unique_id=2091563935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
 
-[node name="InteractableObject2" parent="." unique_id=1546157783 instance=ExtResource("4_xqtc4")]
+[node name="InteractableObject1" parent="." unique_id=836935796 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
+actionArray = [NodePath("ActionDestroyObject"), NodePath("ActionOpenMessage")]
+
+[node name="Sprite3D" parent="InteractableObject1" index="1" unique_id=372624617]
+texture = ExtResource("6_426al")
+
+[node name="ActionDestroyObject" parent="InteractableObject1" unique_id=939660399 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("6_6wpvm")]
+nodesToDestroy = [NodePath("../../Door1")]
+
+[node name="ActionOpenMessage" parent="InteractableObject1" unique_id=1148073238 instance=ExtResource("7_426al")]
+actionMessageText = "A mask of shining beauty, to hide the ugliness within "
+actionMessageWaitTime = 3.0
+
+[node name="Door2" type="Node3D" parent="." unique_id=1045624584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
+
+[node name="InteractableObject2" parent="." unique_id=1546157783 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 14, 5)
+actionArray = [NodePath("ActionDestroyObject2"), NodePath("ActionOpenMessage2")]
 
-[node name="InteractableObject3" parent="." unique_id=237522233 instance=ExtResource("4_xqtc4")]
+[node name="ActionDestroyObject2" parent="InteractableObject2" unique_id=2046173418 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("6_6wpvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, 0, -4)
+nodesToDestroy = [NodePath("../../Door2")]
+
+[node name="ActionOpenMessage2" parent="InteractableObject2" unique_id=1136643631 instance=ExtResource("7_426al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, 0, -4)
+actionMessageText = "Letters and letters of happy things, to mask the sadness inside"
+actionMessageWaitTime = 3.0
+
+[node name="Door3" type="Node3D" parent="." unique_id=1799915319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
+
+[node name="InteractableObject3" parent="." unique_id=237522233 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 14, -2)
+actionArray = [NodePath("ActionDestroyObject3"), NodePath("ActionOpenMessage3")]
 
-[node name="InteractableObject4" parent="." unique_id=1590544768 instance=ExtResource("4_xqtc4")]
+[node name="Sprite3D" parent="InteractableObject3" index="1" unique_id=372624617]
+texture = ExtResource("9_426al")
+
+[node name="ActionDestroyObject3" parent="InteractableObject3" unique_id=559190615 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("6_6wpvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, 0, 3)
+nodesToDestroy = [NodePath("../../Door3")]
+
+[node name="ActionOpenMessage3" parent="InteractableObject3" unique_id=1008605289 instance=ExtResource("7_426al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119, 0, 3)
+actionMessageText = "The mask of a radiant smile, to disguise the pain you feel"
+actionMessageWaitTime = 3.0
+
+[node name="Door4" type="Node3D" parent="." unique_id=1380037156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
+
+[node name="InteractableObject4" parent="." unique_id=1590544768 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 14, 16)
+actionArray = [NodePath("ActionDestroyObject4"), NodePath("ActionOpenMessage4")]
+
+[node name="Sprite3D" parent="InteractableObject4" index="1" unique_id=372624617]
+texture = ExtResource("10_7k2bu")
+
+[node name="ActionDestroyObject4" parent="InteractableObject4" unique_id=109216990 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("6_6wpvm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 0, -15)
+nodesToDestroy = [NodePath("../../Door4")]
+
+[node name="ActionOpenMessage4" parent="InteractableObject4" unique_id=927383115 instance=ExtResource("7_426al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 0, -15)
+actionMessageText = "The mask of perfect health, conceiling all sorts of sicknesses inside"
+actionMessageWaitTime = 3.0
+
+[node name="SpawnNode" type="Node3D" parent="." unique_id=1261637822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054706275, 0.4188974, 16.379425)
+
+[node name="InteractableObject5" parent="." unique_id=1117776673 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25640774, 1.6096911, -9.044511)
+actionArray = [NodePath("ActionOpenMessage5"), NodePath("ActionSpawnObject")]
+
+[node name="Sprite3D" parent="InteractableObject5" index="1" unique_id=372624617]
+texture = ExtResource("11_jyidj")
+
+[node name="ActionOpenMessage5" parent="InteractableObject5" unique_id=1977154807 instance=ExtResource("7_426al")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 0, -15)
+actionMessageText = "A mask to surrounded by people, to run away from the loneliness"
+actionMessageWaitTime = 3.0
+
+[node name="ActionSpawnObject" parent="InteractableObject5" unique_id=263706975 node_paths=PackedStringArray("spawnNode") instance=ExtResource("12_g4l0h")]
+sceneToSpawn = ExtResource("13_g4l0h")
+spawnNode = NodePath("../../SpawnNode")
 
 [node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
 
@@ -59,3 +149,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67)
 [node name="balcony" parent="." unique_id=1178128223 instance=ExtResource("8_h88kf")]
 
 [editable path="DitheringViewport"]
+[editable path="InteractableObject1"]
+[editable path="InteractableObject2"]
+[editable path="InteractableObject3"]
+[editable path="InteractableObject4"]
+[editable path="InteractableObject5"]

@@ -10,16 +10,19 @@ albedo_color = Color(0.17, 0.17, 0.17, 1)
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=523915498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.40001, 12.991184, 14.5)
 material_override = SubResource("StandardMaterial3D_dxsh6")
+use_collision = true
 size = Vector3(30, 1.2, 7)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=237988597]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.40001, 12.991184, -7.5)
 material_override = SubResource("StandardMaterial3D_dxsh6")
+use_collision = true
 size = Vector3(30, 1.2, 7)
 
 [node name="balcony_left" type="Node3D" parent="." unique_id=1976441206]
 
 [node name="walls" type="CSGCombiner3D" parent="balcony_left" unique_id=149344051]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="balcony_left/walls" unique_id=1385479427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5, 18.5, 38)
@@ -78,6 +81,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 74.7
 size = Vector3(30.432556, 10, 1)
 
 [node name="floor_left" type="CSGCombiner3D" parent="balcony_left" unique_id=985652942]
+use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="balcony_left/floor_left" unique_id=35825529]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 13, -2)

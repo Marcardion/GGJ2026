@@ -10,6 +10,9 @@ extends CharacterBody3D
 @export var attack_cooldown = 0.5
 @export var detection_range = 10
 
+@export var shouldSpawnItem = false
+@export var itemToSpawn : Node3D
+
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 @onready var DeathSFX = $DeathSound
 @onready var DamageSFX = $DamageSound
@@ -76,6 +79,9 @@ func damage(incoming_damage:float):
 		DeathSFX.play()
 		enemy_sprite.play("death")
 		$CollisionShape3D.disabled = true
+		if shouldSpawnItem:
+			itemToSpawn.visible = true
+			itemToSpawn.get_child(0).disabled = false
 	else:
 		DamageSFX.play()
 		enemy_sprite.modulate = Color.INDIAN_RED

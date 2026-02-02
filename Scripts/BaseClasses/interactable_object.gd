@@ -13,6 +13,7 @@ func Interact():
 	interactSFX.play()
 	for action in actionArray:
 		action.DoAction()
+	activated = true
 
 func activateHighlight():
 	pass
