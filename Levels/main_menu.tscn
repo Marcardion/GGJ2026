@@ -51,7 +51,7 @@ size = Vector2i(1600, 900)
 [node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="1" unique_id=1627543730 instance=ExtResource("8_qor8d")]
 startBlackScreen = false
 
-[node name="MusicPlayer" parent="DitheringViewport/SubViewport/GameHUDCanvas" index="1" unique_id=1873630154]
+[node name="MusicPlayer" parent="DitheringViewport/SubViewport/GameHUDCanvas" index="1" unique_id=154393447]
 stream = ExtResource("4_1brcv")
 volume_db = 2.277
 

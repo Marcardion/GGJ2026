@@ -21,10 +21,13 @@ var aggro = false
 var dead = false
 var canAttack = true
 
+var gravity = 9.8
+
 func _ready():
 	cooldownTimer.wait_time = attack_cooldown
 
 func _physics_process(delta):
+	
 	if dead || !canAttack:
 		return
 	if player == null:
@@ -47,6 +50,11 @@ func _physics_process(delta):
 	
 	dir = dir.normalized()
 	velocity = dir * move_speed
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * (3*delta)
+	
+	
 	if !aggro:
 		enemy_sprite.play("walking")
 	move_and_slide()
@@ -56,6 +64,7 @@ func _physics_process(delta):
 
 func aggro_anim_done():
 	aggro = false
+	enemy_sprite.animation_finished.disconnect(aggro_anim_done)
 
 func attempt_to_kill_player():
 	if Globals.player_enabled == false:

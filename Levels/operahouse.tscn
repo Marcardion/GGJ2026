@@ -1,44 +1,57 @@
 [gd_scene format=3 uid="uid://byurwk7j1hn6f"]
 
-[ext_resource type="PackedScene" uid="uid://bdiypj6hkb1jf" path="res://Levels/theaterfloor.tscn" id="1_64jyp"]
+[ext_resource type="PackedScene" uid="uid://bdiypj6hkb1jf" path="res://Levels/levelpieces/theaterfloor.tscn" id="1_64jyp"]
 [ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="1_b144e"]
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_ulk66"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_yfl12"]
-[ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/lobby.tscn" id="4_ulk66"]
+[ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/levelpieces/lobby.tscn" id="4_ulk66"]
 [ext_resource type="PackedScene" uid="uid://bsaklqobxkbdb" path="res://BaseScenes/message_base.tscn" id="4_usp4g"]
+[ext_resource type="AudioStream" uid="uid://dfio13gux2jfd" path="res://Sounds/music/lvl_explore.mp3" id="4_x0ro7"]
 [ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="4_xqtc4"]
 [ext_resource type="PackedScene" uid="uid://g0x208q7ui4h" path="res://Scripts/Actions/action_destroy_object.tscn" id="6_6wpvm"]
 [ext_resource type="Texture2D" uid="uid://q17ph8qrcgqt" path="res://art/2D assets/items/ItemRottenRibbon.png" id="6_426al"]
-[ext_resource type="PackedScene" uid="uid://blsnicisvasmh" path="res://Levels/opera_box.tscn" id="6_b144e"]
+[ext_resource type="PackedScene" uid="uid://blsnicisvasmh" path="res://Levels/levelpieces/opera_box.tscn" id="6_b144e"]
 [ext_resource type="PackedScene" uid="uid://il2rufesp4ol" path="res://Scripts/Actions/action_open_message.tscn" id="7_426al"]
-[ext_resource type="PackedScene" uid="uid://des6otmhr8wwk" path="res://Levels/balcony.tscn" id="8_h88kf"]
+[ext_resource type="PackedScene" uid="uid://des6otmhr8wwk" path="res://Levels/levelpieces/balcony.tscn" id="8_h88kf"]
 [ext_resource type="Texture2D" uid="uid://c54awaj2i4t56" path="res://art/2D assets/items/ItemBrokenFrame.png" id="9_426al"]
 [ext_resource type="Texture2D" uid="uid://dyp4g2cyjffm7" path="res://art/2D assets/items/ItemNeedle.png" id="10_7k2bu"]
 [ext_resource type="PackedScene" uid="uid://dp6p1d2lh33hp" path="res://FurnitureScenes/doorway.tscn" id="10_a6llm"]
 [ext_resource type="Texture2D" uid="uid://74abkkvrm77" path="res://art/2D assets/items/ItemBrokenDoll.png" id="11_jyidj"]
+[ext_resource type="AudioStream" uid="uid://wgu4afrf6e7i" path="res://Sounds/music/battle.mp3" id="12_5l7sr"]
 [ext_resource type="PackedScene" uid="uid://bjmf6vb6mdqjv" path="res://Scripts/Actions/action_spawn_object.tscn" id="12_g4l0h"]
 [ext_resource type="PackedScene" uid="uid://dfw28b5y53du0" path="res://ObjectScenes/3faces_enemy.tscn" id="13_g4l0h"]
+[ext_resource type="PackedScene" uid="uid://dkmpxks6l7luu" path="res://Scripts/Actions/action_change_music.tscn" id="17_iekuy"]
+[ext_resource type="AudioStream" uid="uid://g0fiuoxopqx4" path="res://Sounds/music/boss_battle.mp3" id="18_5y8le"]
 [ext_resource type="PackedScene" uid="uid://yq3c02cfferu" path="res://FurnitureScenes/door_open.tscn" id="19_o8pf7"]
+[ext_resource type="PackedScene" uid="uid://d3r8162spc6dn" path="res://ObjectScenes/oldman_enemy.tscn" id="23_skebj"]
+[ext_resource type="PackedScene" uid="uid://bawajlhw00okl" path="res://ObjectScenes/lady_enemy.tscn" id="24_5l7sr"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64jyp"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5l7sr"]
+sky_top_color = Color(0.27613917, 0.33427498, 0.41174263, 1)
+sky_horizon_color = Color(0.39093703, 0.40195352, 0.41754127, 1)
+ground_bottom_color = Color(0.05460091, 0.04053115, 0.025414351, 1)
+ground_horizon_color = Color(0.39093703, 0.40195352, 0.41754127, 1)
+energy_multiplier = 0.8
 
-[sub_resource type="Sky" id="Sky_ulk66"]
-sky_material = SubResource("ProceduralSkyMaterial_64jyp")
+[sub_resource type="Sky" id="Sky_eddnl"]
+sky_material = SubResource("ProceduralSkyMaterial_5l7sr")
 
-[sub_resource type="Environment" id="Environment_yfl12"]
+[sub_resource type="Environment" id="Environment_doky0"]
 background_mode = 2
-sky = SubResource("Sky_ulk66")
+sky = SubResource("Sky_eddnl")
 tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
 
 [node name="operahouse" type="Node3D" unique_id=1789490419]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2061096905]
-environment = SubResource("Environment_yfl12")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1052688768]
+environment = SubResource("Environment_doky0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1572441121]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1597160868]
+transform = Transform3D(-0.8660254, -0.4916275, 0.09111777, 0, 0.18223552, 0.9832549, -0.50000006, 0.8515237, -0.1578206, 0, 0, 0)
+light_color = Color(0.40069747, 0.4006978, 0.40069768, 1)
+light_energy = 0.8
 shadow_enabled = true
 
 [node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_ulk66")]
@@ -47,6 +60,9 @@ shadow_enabled = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.017745972, 3.5579615, -49.008873)
 
 [node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="1" unique_id=1627543730 instance=ExtResource("1_b144e")]
+
+[node name="MusicPlayer" parent="DitheringViewport/SubViewport/GameHUDCanvas" index="1" unique_id=154393447]
+stream = ExtResource("4_x0ro7")
 
 [node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("4_usp4g")]
 visible = false
@@ -61,7 +77,7 @@ transform = Transform3D(-5.2453663e-07, 0, -10, 0, 10, 0, 12, 0, -4.371139e-07, 
 transform = Transform3D(-5.68248e-07, 0, -10, 0, 10, 0, 13, 0, -4.371139e-07, -24.220554, -0.8854408, 10.693375)
 
 [node name="InteractableObject1" parent="." unique_id=836935796 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14.431519, 1)
 actionArray = [NodePath("ActionDestroyObject"), NodePath("ActionOpenMessage")]
 
 [node name="Sprite3D" parent="InteractableObject1" index="1" unique_id=372624617]
@@ -84,8 +100,8 @@ transform = Transform3D(-3.934025e-07, 0, -10, 0, 10, 0, 9, 0, -4.371139e-07, 65
 transform = Transform3D(-3.934025e-07, 0, 10, 0, 10, 0, -9, 0, -4.371139e-07, 66.4953, -10.499998, -39.211784)
 
 [node name="InteractableObject2" parent="." unique_id=1546157783 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 14, 5)
-actionArray = [NodePath("ActionDestroyObject2"), NodePath("ActionOpenMessage2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 14.377352, 5)
+actionArray = [NodePath("ActionDestroyObject2"), NodePath("ActionOpenMessage2"), NodePath("ActionChangeMusic")]
 
 [node name="ActionDestroyObject2" parent="InteractableObject2" unique_id=2046173418 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("6_6wpvm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, 0, -4)
@@ -95,6 +111,9 @@ nodesToDestroy = [NodePath("../../Door2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, 0, -4)
 actionMessageText = "Letters and letters of happy things, to mask the sadness inside"
 actionMessageWaitTime = 3.0
+
+[node name="ActionChangeMusic" parent="InteractableObject2" unique_id=1972903241 instance=ExtResource("17_iekuy")]
+newMusic = ExtResource("12_5l7sr")
 
 [node name="Door3" type="Node3D" parent="." unique_id=1799915319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
@@ -106,7 +125,7 @@ transform = Transform3D(-2.84124e-07, 0, -10.925, 0, 7.5, 0, 6.5, 0, -4.775469e-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 1.7763568e-15, 0, 1, -0.0013017654, 0.003737688, 0.0024938583)
 
 [node name="InteractableObject3" parent="." unique_id=237522233 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 14, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 14.504845, -2)
 actionArray = [NodePath("ActionDestroyObject3"), NodePath("ActionOpenMessage3")]
 
 [node name="Sprite3D" parent="InteractableObject3" index="1" unique_id=372624617]
@@ -131,7 +150,7 @@ transform = Transform3D(17, 0, 0, 0, 10, 0, 0, 0, 5, 28.619862, -10.387888, -38.
 transform = Transform3D(-17, 0, 7.54979e-07, 0, 10, 0, -2.5669287e-06, 0, -5, 45.30055, -10.387888, -39)
 
 [node name="InteractableObject4" parent="." unique_id=1590544768 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 14, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 14.586805, 16)
 actionArray = [NodePath("ActionDestroyObject4"), NodePath("ActionOpenMessage4")]
 
 [node name="Sprite3D" parent="InteractableObject4" index="1" unique_id=372624617]
@@ -151,19 +170,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.054706275, 0.4188974, 16.37
 
 [node name="InteractableObject5" parent="." unique_id=1117776673 node_paths=PackedStringArray("actionArray") instance=ExtResource("4_xqtc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25640774, 1.6096911, -9.044511)
-actionArray = [NodePath("ActionOpenMessage5"), NodePath("ActionSpawnObject")]
+actionArray = [NodePath("ActionOpenMessage5"), NodePath("ActionSpawnObject"), NodePath("ActionChangeMusic")]
 
 [node name="Sprite3D" parent="InteractableObject5" index="1" unique_id=372624617]
 texture = ExtResource("11_jyidj")
 
 [node name="ActionOpenMessage5" parent="InteractableObject5" unique_id=1977154807 instance=ExtResource("7_426al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 0, -15)
-actionMessageText = "A mask to surrounded by people, to run away from the loneliness"
+actionMessageText = "A perfect doll, surrounded by others to run away from the loneliness"
 actionMessageWaitTime = 3.0
 
 [node name="ActionSpawnObject" parent="InteractableObject5" unique_id=263706975 node_paths=PackedStringArray("spawnNode") instance=ExtResource("12_g4l0h")]
 sceneToSpawn = ExtResource("13_g4l0h")
 spawnNode = NodePath("../../SpawnNode")
+
+[node name="ActionChangeMusic" parent="InteractableObject5" unique_id=1098766088 instance=ExtResource("17_iekuy")]
+newMusic = ExtResource("18_5y8le")
 
 [node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
 
@@ -212,7 +234,55 @@ transform = Transform3D(-4.371139e-07, 0, -10.925, 0, 7.5, 0, 10, 0, -4.775469e-
 [node name="doorwayOpen5" parent="Open_doors" unique_id=167802101 instance=ExtResource("19_o8pf7")]
 transform = Transform3D(-4.371139e-07, 0, -10.925, 0, 7.5, 0, 10, 0, -4.775469e-07, -91.04592, 13.493161, -9.511342)
 
+[node name="Enemies" type="Node3D" parent="." unique_id=2143536056]
+
+[node name="OldManEnemy" parent="Enemies" unique_id=1414180886 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -44.117725, 13.688509, -13.467593)
+
+[node name="OldManEnemy2" parent="Enemies" unique_id=1950767860 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -58.53938, 13.688509, -0.32690048)
+
+[node name="OldManEnemy3" parent="Enemies" unique_id=1982753208 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -43.76886, 13.688509, 15.323047)
+
+[node name="LadyEnemy" parent="Enemies" unique_id=1098075848 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -78.17748, 13.91733, 14.545672)
+
+[node name="LadyEnemy2" parent="Enemies" unique_id=905255154 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -78.35265, 14.008515, -7.65337)
+
+[node name="LadyEnemy3" parent="Enemies" unique_id=1618912493 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -106.64386, 13.91733, 4.523238)
+
+[node name="OldManEnemy4" parent="Enemies" unique_id=954104840 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 54.785553, 11.972052, -34.225883)
+
+[node name="LadyEnemy4" parent="Enemies" unique_id=756137298 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 73.90991, 13.917328, -22.546099)
+
+[node name="OldManEnemy5" parent="Enemies" unique_id=6759063 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 73.55896, 13.688511, -5.2672267)
+
+[node name="LadyEnemy5" parent="Enemies" unique_id=353282002 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 69.00733, 13.91733, 8.200062)
+
+[node name="LadyEnemy6" parent="Enemies" unique_id=326252027 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 37.947525, 13.91733, 15.747532)
+
+[node name="LadyEnemy7" parent="Enemies" unique_id=2128143836 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.2034054, 0.7923324, -13.090757)
+
+[node name="LadyEnemy8" parent="Enemies" unique_id=1638211558 instance=ExtResource("24_5l7sr")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.402296, 0.7923324, -12.958114)
+
+[node name="OldManEnemy6" parent="Enemies" unique_id=1931659184 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -0.1374675, 0.6010083, -17.55454)
+
+[node name="OldManEnemy7" parent="Enemies" unique_id=1416731387 instance=ExtResource("23_skebj")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.12997538, 0.6010083, -4.46278)
+
 [editable path="DitheringViewport"]
+[editable path="DitheringViewport/SubViewport/GameHUDCanvas"]
 [editable path="InteractableObject1"]
 [editable path="InteractableObject2"]
 [editable path="InteractableObject3"]

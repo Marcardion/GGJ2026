@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://blsnicisvasmh"]
 
-[ext_resource type="PackedScene" uid="uid://dfty4ncs4n7ps" path="res://Levels/camarote.tscn" id="1_f2ecf"]
+[ext_resource type="PackedScene" uid="uid://dfty4ncs4n7ps" path="res://Levels/levelpieces/camarote.tscn" id="1_f2ecf"]
 
 [node name="opera box" type="Node3D" unique_id=807308059]
 

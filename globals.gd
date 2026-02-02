@@ -10,7 +10,7 @@ func _input(event):
 		return_to_menu()
 
 func changeMusic(newMusic : AudioStream):
-	var musicPlayer : AudioStreamPlayer2D = gameHUD.get_child(1)
+	var musicPlayer : AudioStreamPlayer = gameHUD.get_child(1)
 	musicPlayer.stop()
 	musicPlayer.stream = newMusic
 	musicPlayer.play()

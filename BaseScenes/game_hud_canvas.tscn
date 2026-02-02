@@ -14,6 +14,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1873630154]
-volume_db = 1.5
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=154393447]
+volume_db = 2.5
 autoplay = true

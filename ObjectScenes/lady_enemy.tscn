@@ -170,18 +170,18 @@ animations = [{
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 collision_mask = 3
 script = ExtResource("1_07x72")
-move_speed = 4
+move_speed = 5
 health = 3
 attack_range = 1.5
 attack_cooldown = 0.8
-detection_range = 15
+detection_range = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682257078]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.199707, 0)
 shape = SubResource("CapsuleShape3D_b1ppv")
 
 [node name="EnemySprite" type="AnimatedSprite3D" parent="." unique_id=1071977555]
-transform = Transform3D(0.854239, 0, 0, 0, 0.854239, 0, 0, 0, 0.854239, 0, 1.09408, 0)
+transform = Transform3D(0.854239, 0, 0, 0, 0.854239, 0, 0, 0, 0.854239, 0, 1.7060279, 0)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_5p3ml")
 animation = &"aggro"
