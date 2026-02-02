@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsup8dlcjfiak" path="res://Shaders/dithering/assets/palette_hollow.png" id="5_38et7"]
 [ext_resource type="Texture2D" uid="uid://cyfpyhpqx7val" path="res://Shaders/dithering/assets/bayer2tile16.png" id="5_a25ih"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_sb12i"]
+[ext_resource type="AudioStream" uid="uid://dfio13gux2jfd" path="res://Sounds/music/lvl_explore.mp3" id="7_0dbuy"]
 [ext_resource type="PackedScene" uid="uid://bsaklqobxkbdb" path="res://BaseScenes/message_base.tscn" id="7_a25ih"]
 [ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_lnbra"]
 [ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="7_y646j"]
@@ -18,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bjmf6vb6mdqjv" path="res://Scripts/Actions/action_spawn_object.tscn" id="16_7fqlb"]
 [ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://BaseScenes/enemy.tscn" id="17_e8hb2"]
 [ext_resource type="PackedScene" uid="uid://dfw28b5y53du0" path="res://ObjectScenes/3faces_enemy.tscn" id="18_e8hb2"]
+[ext_resource type="PackedScene" uid="uid://dkmpxks6l7luu" path="res://Scripts/Actions/action_change_music.tscn" id="19_f55p2"]
+[ext_resource type="AudioStream" uid="uid://wgu4afrf6e7i" path="res://Sounds/music/battle.mp3" id="20_kvxjt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -69,6 +72,9 @@ size = Vector2i(1600, 900)
 
 [node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1627543730 instance=ExtResource("3_58smv")]
 
+[node name="MusicPlayer" parent="DitheringViewport/SubViewport/GameHUDCanvas" index="1" unique_id=1873630154]
+stream = ExtResource("7_0dbuy")
+
 [node name="MessageBase" parent="DitheringViewport/SubViewport/GameHUDCanvas" unique_id=1096049273 instance=ExtResource("7_a25ih")]
 visible = false
 
@@ -89,7 +95,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.864292, -1.9275788, 
 
 [node name="AreaActionTrigger" parent="." unique_id=2132233610 node_paths=PackedStringArray("actionArray") instance=ExtResource("13_b7ax5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1482909, -1.2011695, -6.711911)
-actionArray = [NodePath("ActionOpenMessage"), NodePath("ActionDestroyObject"), NodePath("ActionSpawnObject")]
+actionArray = [NodePath("ActionOpenMessage"), NodePath("ActionDestroyObject"), NodePath("ActionSpawnObject"), NodePath("ActionChangeMusic")]
 
 [node name="ActionOpenMessage" parent="AreaActionTrigger" unique_id=1148073238 instance=ExtResource("14_b7ax5")]
 actionMessageText = "This is a test message"
@@ -103,6 +109,9 @@ nodesToDestroy = [NodePath("../../desk2"), NodePath("../../bathroomCabinet2")]
 sceneToSpawn = ExtResource("17_e8hb2")
 spawnNode = NodePath("../../SpawnPoint")
 
+[node name="ActionChangeMusic" parent="AreaActionTrigger" unique_id=1972903241 instance=ExtResource("19_f55p2")]
+newMusic = ExtResource("20_kvxjt")
+
 [node name="SpawnPoint" type="Node3D" parent="." unique_id=576865999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8499417, -2.1788158, -14.511139)
 
@@ -111,4 +120,5 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.765833, -2.3322227, 
 attack_range = 3.5
 
 [editable path="DitheringViewport"]
+[editable path="DitheringViewport/SubViewport/GameHUDCanvas"]
 [editable path="AreaActionTrigger"]
