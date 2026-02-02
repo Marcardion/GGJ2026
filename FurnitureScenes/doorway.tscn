@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dp6p1d2lh33hp"]
+
+[ext_resource type="PackedScene" uid="uid://db8chbmr65mmf" path="res://art/3D assets/doorway.glb" id="1_mnh5v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6c2ic"]
+albedo_color = Color(0.11, 0.11, 0.11, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75ghf"]
+albedo_color = Color(0.45, 0.45, 0.45, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytb33"]
+albedo_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnh5v"]
+size = Vector3(0.48599997, 1.0095317, 0.089099996)
+
+[node name="doorway" unique_id=737998666 instance=ExtResource("1_mnh5v")]
+
+[node name="doorway(Clone)" parent="." index="0" unique_id=1325175045]
+surface_material_override/0 = SubResource("StandardMaterial3D_6c2ic")
+
+[node name="door" parent="doorway(Clone)" index="0" unique_id=1388670133]
+surface_material_override/0 = SubResource("StandardMaterial3D_75ghf")
+surface_material_override/1 = SubResource("StandardMaterial3D_ytb33")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=249646156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24299999, 0.50476587, -0.044549998)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1989657916]
+shape = SubResource("BoxShape3D_mnh5v")

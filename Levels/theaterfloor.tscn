@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bdiypj6hkb1jf"]
 
 [ext_resource type="PackedScene" uid="uid://dfty4ncs4n7ps" path="res://Levels/camarote.tscn" id="1_fuey0"]
-[ext_resource type="PackedScene" uid="uid://d20btkahol74u" path="res://art/3D assets/chair.tscn" id="2_sqcg7"]
+[ext_resource type="PackedScene" uid="uid://d20btkahol74u" path="res://FurnitureScenes/chair.tscn" id="2_sqcg7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_347x2"]
 albedo_color = Color(0.12156863, 0.12156863, 0.12156863, 1)

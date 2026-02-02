@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://yq3c02cfferu"]
+
+[ext_resource type="PackedScene" uid="uid://bxhxycj5a83ic" path="res://art/3D assets/doorwayOpen.glb" id="1_iait4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7t3th"]
+albedo_color = Color(0.35, 0.35, 0.35, 1)
+
+[node name="doorwayOpen" unique_id=1367249537 instance=ExtResource("1_iait4")]
+
+[node name="doorwayOpen(Clone)" parent="." index="0" unique_id=1151147430]
+surface_material_override/0 = SubResource("StandardMaterial3D_7t3th")

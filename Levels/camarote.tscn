@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dfty4ncs4n7ps"]
 
-[ext_resource type="PackedScene" uid="uid://dxb7c0qp5ivq4" path="res://art/3D assets/fence.tscn" id="1_4wmvl"]
+[ext_resource type="PackedScene" uid="uid://dxb7c0qp5ivq4" path="res://FurnitureScenes/fence.tscn" id="1_4wmvl"]
 
 [node name="camarote" type="Node3D" unique_id=1909939803]
 
