@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://dodwhr47by5y7"]
 
-[ext_resource type="Script" uid="uid://c8bptirtbgkqh" path="res://BaseScenes/main_menu_canvas.gd" id="1_uevtf"]
+[ext_resource type="Script" uid="uid://bswv1sdlv0g7d" path="res://BaseScenes/credits_canvas.gd" id="1_uevtf"]
 [ext_resource type="FontFile" uid="uid://ctutf16epe2ca" path="res://art/UI/fonts/Aladin-Regular.ttf" id="2_q8sn7"]
 [ext_resource type="FontFile" uid="uid://btinqjvygd146" path="res://art/UI/fonts/Amarante-Regular.ttf" id="3_wdco3"]
 [ext_resource type="Theme" uid="uid://bawy0u7g7ye80" path="res://button_basic.tres" id="4_uevtf"]
 [ext_resource type="Texture2D" uid="uid://cgmeknmfsjskn" path="res://art/UI/Logo/logo_BladesGuidance01.png" id="5_a1gjc"]
 
-[sub_resource type="Theme" id="Theme_q8sn7"]
-
-[node name="MainMenuCanvas" type="CanvasLayer" unique_id=1292134461]
+[node name="CreditsCanvas" type="CanvasLayer" unique_id=1292134461]
 script = ExtResource("1_uevtf")
+scenePath = "res://Levels/main_menu.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1312735308]
 anchors_preset = 15
@@ -60,18 +59,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -275.0
-offset_right = 140.0
-offset_bottom = -7.0
+offset_left = -779.0
+offset_top = -618.0
+offset_right = 563.0
+offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 30
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=764791296]
-custom_minimum_size = Vector2(512, 512)
+custom_minimum_size = Vector2(800, 800)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_wdco3")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "SFXs
 ● SOUND EFFECTS FROM FREESOUND.ORG
@@ -86,14 +86,11 @@ text = "SFXs
 "
 autowrap_trim_flags = 0
 
-[node name="HBoxContainer" type="VBoxContainer" parent="UI/VBoxContainer" unique_id=479285170]
-layout_mode = 2
-theme = SubResource("Theme_q8sn7")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/VBoxContainer/HBoxContainer" unique_id=1394821361]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/VBoxContainer" unique_id=1394821361]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("3_wdco3")
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "MUSICS
 ● MUSIC FROM CLASSICALS.DE
@@ -106,11 +103,6 @@ text = "MUSICS
 
 "
 autowrap_trim_flags = 0
-
-[node name="Button" type="Button" parent="UI/VBoxContainer/HBoxContainer" unique_id=279364399]
-layout_mode = 2
-theme = ExtResource("4_uevtf")
-text = "Back to Main Menu"
 
 [node name="VBoxContainer3" type="HBoxContainer" parent="UI" unique_id=698384819]
 layout_mode = 1
@@ -139,3 +131,21 @@ theme_override_font_sizes/font_size = 32
 text = "Developed By
 Laila Alves
 Marcelo Costa"
+
+[node name="Button" type="Button" parent="UI" unique_id=279364399]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -141.0
+offset_right = -48.0
+offset_bottom = -47.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_uevtf")
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]

@@ -75,6 +75,14 @@ size_flags_vertical = 8
 theme = ExtResource("4_lf6fk")
 text = "Start Game"
 
+[node name="Credits" type="Button" parent="UI/VBoxContainer" unique_id=2008143562]
+custom_minimum_size = Vector2(280, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("4_lf6fk")
+text = "Credits"
+
 [node name="EndGameButton" type="Button" parent="UI/VBoxContainer" unique_id=1594547213]
 custom_minimum_size = Vector2(280, 64)
 layout_mode = 2
@@ -112,4 +120,5 @@ Laila Alves
 Marcelo Costa"
 
 [connection signal="pressed" from="UI/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/EndGameButton" to="." method="_on_end_game_button_pressed"]

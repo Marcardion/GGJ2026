@@ -21,3 +21,7 @@ func _on_start_game_button_pressed():
 
 func _on_end_game_button_pressed():
 	get_tree().quit()
+
+
+func _on_credits_pressed():
+	Globals.fadeOutLoadScene("res://Levels/credits.tscn")

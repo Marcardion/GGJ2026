@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://bg5tsici80b54"]
+[gd_scene format=3 uid="uid://lta6xhcu8yrd"]
 
-[ext_resource type="PackedScene" uid="uid://bmp3qemvecdt3" path="res://BaseScenes/main_menu_canvas.tscn" id="1_5qvx8"]
-[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_hllw6"]
-[ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_qor8d"]
-[ext_resource type="AudioStream" uid="uid://dfwvl18f38dx0" path="res://Sounds/music/menu.mp3" id="4_1brcv"]
-[ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="4_6e2af"]
-[ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="5_yw3yt"]
-[ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="7_6e2af"]
-[ext_resource type="Texture2D" uid="uid://c07plpy2tuavl" path="res://art/2D assets/mask_3faces.png" id="7_hllw6"]
-[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="8_qor8d"]
-[ext_resource type="AudioStream" uid="uid://db3f25fpbf46b" path="res://Sounds/sfx_bell_cutscene.wav" id="9_1brcv"]
-[ext_resource type="PackedScene" uid="uid://7v62jdurwgsk" path="res://Scripts/Actions/action_fade_load_scene.tscn" id="9_yw3yt"]
+[ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="1_7ypxa"]
+[ext_resource type="PackedScene" uid="uid://dodwhr47by5y7" path="res://BaseScenes/credits_canvas.tscn" id="2_3fpr1"]
+[ext_resource type="PackedScene" uid="uid://b5k4ymi78se45" path="res://BaseScenes/game_hud_canvas.tscn" id="3_vivp4"]
+[ext_resource type="AudioStream" uid="uid://83604ifepnoj" path="res://Sounds/music/credits.mp3" id="4_7ypxa"]
+[ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="5_4wdo2"]
+[ext_resource type="PackedScene" uid="uid://cf07klgtiybdy" path="res://FurnitureScenes/desk.tscn" id="6_odk30"]
+[ext_resource type="PackedScene" uid="uid://tj6dfo6gj2ae" path="res://FurnitureScenes/bathroom_cabinet.tscn" id="7_04n73"]
+[ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="8_q6ged"]
+[ext_resource type="Texture2D" uid="uid://c07plpy2tuavl" path="res://art/2D assets/mask_3faces.png" id="9_ytwys"]
+[ext_resource type="AudioStream" uid="uid://db3f25fpbf46b" path="res://Sounds/sfx_bell_cutscene.wav" id="10_2o6m6"]
+[ext_resource type="PackedScene" uid="uid://7v62jdurwgsk" path="res://Scripts/Actions/action_fade_load_scene.tscn" id="11_qt0qy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jix8l"]
 sky_top_color = Color(0.047058824, 0.050980393, 0.078431375, 1)
@@ -41,21 +41,21 @@ transform = Transform3D(0.4771588, 0.8747712, -0.08423089, 0, 0.09584576, 0.9953
 light_energy = 4.01
 shadow_enabled = true
 
-[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("2_hllw6")]
+[node name="DitheringViewport" parent="." unique_id=279763827 instance=ExtResource("1_7ypxa")]
 
 [node name="SubViewport" parent="DitheringViewport" index="0" unique_id=2022207814]
 size = Vector2i(1600, 900)
 
-[node name="MainMenuCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1292134461 instance=ExtResource("1_5qvx8")]
+[node name="CreditsCanvas" parent="DitheringViewport/SubViewport" index="0" unique_id=1292134461 instance=ExtResource("2_3fpr1")]
 
-[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="1" unique_id=1627543730 instance=ExtResource("8_qor8d")]
+[node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" index="1" unique_id=1627543730 instance=ExtResource("3_vivp4")]
 startBlackScreen = false
 
 [node name="MusicPlayer" parent="DitheringViewport/SubViewport/GameHUDCanvas" index="1" unique_id=1873630154]
-stream = ExtResource("4_1brcv")
+stream = ExtResource("4_7ypxa")
 volume_db = 2.277
 
-[node name="Player" parent="DitheringViewport/SubViewport" index="2" unique_id=2124719694 instance=ExtResource("3_qor8d")]
+[node name="Player" parent="DitheringViewport/SubViewport" index="2" unique_id=2124719694 instance=ExtResource("5_4wdo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -2.339, -3.991)
 startDisabled = true
 
@@ -73,10 +73,10 @@ use_collision = true
 size = Vector3(18.75785, 1, 12.771973)
 material = SubResource("StandardMaterial3D_jix8l")
 
-[node name="desk2" parent="Background" unique_id=614792791 instance=ExtResource("4_6e2af")]
+[node name="desk2" parent="Background" unique_id=614792791 instance=ExtResource("6_odk30")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.1318359, -2.3386235, -7.3993564)
 
-[node name="bathroomCabinet2" parent="Background" unique_id=1956154638 instance=ExtResource("5_yw3yt")]
+[node name="bathroomCabinet2" parent="Background" unique_id=1956154638 instance=ExtResource("7_04n73")]
 transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 0.5, -0.75311935, -1.1780461, -8.464479)
 
 [node name="InvisibleWalls" type="Node3D" parent="Background" unique_id=1112373030]
@@ -108,18 +108,18 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.583303, -0.018608928, -8.879554)
 shape = SubResource("BoxShape3D_glbon")
 
-[node name="InteractableObject" parent="Background" unique_id=836935796 node_paths=PackedStringArray("actionArray") instance=ExtResource("7_6e2af")]
+[node name="InteractableObject" parent="Background" unique_id=836935796 node_paths=PackedStringArray("actionArray") instance=ExtResource("8_q6ged")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009950131, -0.75991285, -7.8378696)
 actionArray = [NodePath("ActionFadeLoadScene")]
 
 [node name="Sprite3D" parent="Background/InteractableObject" index="1" unique_id=372624617]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-texture = ExtResource("7_hllw6")
+texture = ExtResource("9_ytwys")
 
 [node name="InteractSFX" parent="Background/InteractableObject" index="2" unique_id=1932305958]
-stream = ExtResource("9_1brcv")
+stream = ExtResource("10_2o6m6")
 
-[node name="ActionFadeLoadScene" parent="Background/InteractableObject" unique_id=1063656550 instance=ExtResource("9_yw3yt")]
+[node name="ActionFadeLoadScene" parent="Background/InteractableObject" unique_id=1063656550 instance=ExtResource("11_qt0qy")]
 scenePath = "res://Levels/firstMessage.tscn"
 
 [editable path="DitheringViewport"]
