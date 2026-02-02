@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dlulbo6cfiqgf" path="res://BaseScenes/dithering_viewport.tscn" id="2_ulk66"]
 [ext_resource type="PackedScene" uid="uid://kk0fhnjjanvm" path="res://BaseScenes/player.tscn" id="3_yfl12"]
 [ext_resource type="PackedScene" uid="uid://drgn26b4157lm" path="res://Levels/lobby.tscn" id="4_ulk66"]
-[ext_resource type="PackedScene" uid="uid://dfty4ncs4n7ps" path="res://Levels/camarote.tscn" id="6_b144e"]
+[ext_resource type="PackedScene" uid="uid://dqcj4p7xn1645" path="res://Scripts/BaseClasses/interactable_object.tscn" id="4_xqtc4"]
+[ext_resource type="PackedScene" uid="uid://blsnicisvasmh" path="res://Levels/opera_box.tscn" id="6_b144e"]
+[ext_resource type="PackedScene" uid="uid://des6otmhr8wwk" path="res://Levels/balcony.tscn" id="8_h88kf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_64jyp"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,70 +37,25 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.01
 
 [node name="GameHUDCanvas" parent="DitheringViewport/SubViewport" parent_id_path=PackedInt32Array(279763827, 2022207814) index="1" unique_id=1627543730 instance=ExtResource("1_b144e")]
 
+[node name="InteractableObject1" parent="." unique_id=836935796 instance=ExtResource("4_xqtc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 14, 1)
+
+[node name="InteractableObject2" parent="." unique_id=1546157783 instance=ExtResource("4_xqtc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 14, 5)
+
+[node name="InteractableObject3" parent="." unique_id=237522233 instance=ExtResource("4_xqtc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 14, -2)
+
+[node name="InteractableObject4" parent="." unique_id=1590544768 instance=ExtResource("4_xqtc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 14, 16)
+
 [node name="theaterfloor" parent="." unique_id=2088801223 instance=ExtResource("1_64jyp")]
 
 [node name="lobby" parent="." unique_id=1129946871 instance=ExtResource("4_ulk66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -67)
 
-[node name="opera box" type="Node3D" parent="." unique_id=1724519033]
+[node name="opera box" parent="." unique_id=807308059 instance=ExtResource("6_b144e")]
 
-[node name="floor" type="CSGCombiner3D" parent="opera box" unique_id=530680890]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="opera box/floor" unique_id=559156286]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5, 13, 9.5)
-size = Vector3(11, 1, 57)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="opera box/floor" unique_id=2130175319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5, 13, 9.5)
-size = Vector3(11, 1, 57)
-
-[node name="walls" type="CSGCombiner3D" parent="opera box" unique_id=2013524534]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="opera box/walls" unique_id=2048166084]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 16, -28)
-size = Vector3(1, 15, 20)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="opera box/walls" unique_id=1062726715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, -27.41333)
-size = Vector3(1, 15, 17.17334)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="opera box/walls" unique_id=136201385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 16, 29.791016)
-size = Vector3(1, 15, 18.417969)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="opera box/walls" unique_id=2046367503]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 16, 28.679495)
-size = Vector3(1, 15, 20)
-
-[node name="camarote_left" type="Node3D" parent="opera box" unique_id=2095881121]
-
-[node name="camarote" parent="opera box/camarote_left" unique_id=1909939803 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.621197)
-
-[node name="camarote2" parent="opera box/camarote_left" unique_id=194647822 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.38314438)
-
-[node name="camarote3" parent="opera box/camarote_left" unique_id=1953761091 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.520811)
-
-[node name="camarote4" parent="opera box/camarote_left" unique_id=1707833836 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.621235)
-
-[node name="camarote_right" type="Node3D" parent="opera box" unique_id=346428415]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -12)
-
-[node name="camarote" parent="opera box/camarote_right" unique_id=590716301 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.621197)
-
-[node name="camarote2" parent="opera box/camarote_right" unique_id=1811357022 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.38314438)
-
-[node name="camarote3" parent="opera box/camarote_right" unique_id=1899871621 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.520811)
-
-[node name="camarote4" parent="opera box/camarote_right" unique_id=2126774514 instance=ExtResource("6_b144e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.621235)
+[node name="balcony" parent="." unique_id=1178128223 instance=ExtResource("8_h88kf")]
 
 [editable path="DitheringViewport"]

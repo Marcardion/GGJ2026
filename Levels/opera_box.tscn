@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://blsnicisvasmh"]
+
+[ext_resource type="PackedScene" uid="uid://dfty4ncs4n7ps" path="res://Levels/camarote.tscn" id="1_f2ecf"]
+
+[node name="opera box" type="Node3D" unique_id=807308059]
+
+[node name="floor" type="CSGCombiner3D" parent="." unique_id=914141247]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="floor" unique_id=1913603210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5, 13, 9.5)
+size = Vector3(11, 1, 57)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="floor" unique_id=682268767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 13, 9)
+size = Vector3(12, 1, 58)
+
+[node name="walls" type="CSGCombiner3D" parent="." unique_id=459730905]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls" unique_id=20410911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 18, -27)
+size = Vector3(1, 11, 22)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="walls" unique_id=1056855725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 18, 28.179495)
+size = Vector3(1, 11, 21)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls" unique_id=854445269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 18, 7.679495)
+size = Vector3(1, 11, 10)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="walls" unique_id=549404281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 18, -6.320505)
+size = Vector3(1, 11, 10)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="walls" unique_id=154527233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 18.5, 8.679495)
+size = Vector3(1, 10, 10)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="walls" unique_id=189399908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 18, -5.320505)
+size = Vector3(1, 11, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="walls" unique_id=510584373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 17.5, -23.41333)
+size = Vector3(1, 12, 17.17334)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls" unique_id=1171576814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 18, 28)
+size = Vector3(1, 11, 22)
+
+[node name="camarote_left" type="Node3D" parent="." unique_id=1509558396]
+
+[node name="camarote" parent="camarote_left" unique_id=1909939803 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.621197)
+
+[node name="camarote2" parent="camarote_left" unique_id=1075394418 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.38314438)
+
+[node name="camarote3" parent="camarote_left" unique_id=1288817721 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.520811)
+
+[node name="camarote4" parent="camarote_left" unique_id=525277158 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.621235)
+
+[node name="camarote_right" type="Node3D" parent="." unique_id=564554291]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -12)
+
+[node name="camarote" parent="camarote_right" unique_id=1138915425 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.621197)
+
+[node name="camarote2" parent="camarote_right" unique_id=610710087 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.38314438)
+
+[node name="camarote3" parent="camarote_right" unique_id=1998324940 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.520811)
+
+[node name="camarote4" parent="camarote_right" unique_id=713908700 instance=ExtResource("1_f2ecf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.621235)
