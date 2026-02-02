@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjmf6vb6mdqjv"]
+
+[ext_resource type="Script" uid="uid://bjnb80eqtqwgt" path="res://Scripts/Actions/action_spawn_object.gd" id="1_7787b"]
+
+[node name="ActionSpawnObject" type="Node3D" unique_id=263706975]
+script = ExtResource("1_7787b")

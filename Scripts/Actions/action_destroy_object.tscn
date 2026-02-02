@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://g0x208q7ui4h"]
+
+[ext_resource type="Script" uid="uid://0ejn2qmm1l2k" path="res://Scripts/Actions/action_destroy_object.gd" id="1_dui8n"]
+
+[node name="ActionDestroyObject" type="Node3D" unique_id=939660399]
+script = ExtResource("1_dui8n")

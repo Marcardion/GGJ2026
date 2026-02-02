@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bawajlhw00okl" path="res://ObjectScenes/lady_enemy.tscn" id="13_38et7"]
 [ext_resource type="PackedScene" uid="uid://ty0g8h7vk1kr" path="res://Scripts/BaseClasses/area_action_trigger.tscn" id="13_b7ax5"]
 [ext_resource type="PackedScene" uid="uid://il2rufesp4ol" path="res://Scripts/Actions/action_open_message.tscn" id="14_b7ax5"]
+[ext_resource type="PackedScene" uid="uid://g0x208q7ui4h" path="res://Scripts/Actions/action_destroy_object.tscn" id="15_4bgwg"]
+[ext_resource type="PackedScene" uid="uid://bjmf6vb6mdqjv" path="res://Scripts/Actions/action_spawn_object.tscn" id="16_7fqlb"]
+[ext_resource type="PackedScene" uid="uid://bb4tfjd4unb77" path="res://BaseScenes/enemy.tscn" id="17_e8hb2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sb12i"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -85,7 +88,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.864292, -2.2150874, 
 
 [node name="AreaActionTrigger" parent="." unique_id=2132233610 node_paths=PackedStringArray("actionArray") instance=ExtResource("13_b7ax5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1482909, -1.2011695, -6.711911)
-actionArray = [NodePath("ActionOpenMessage")]
+actionArray = [NodePath("ActionOpenMessage"), NodePath("ActionDestroyObject"), NodePath("ActionSpawnObject")]
 
 [node name="ActionOpenMessage" parent="AreaActionTrigger" unique_id=1148073238 instance=ExtResource("14_b7ax5")]
 actionMessageText = "This is a test message"
@@ -95,6 +98,17 @@ actionMessageWaitTime = 1.0
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 texture = ExtResource("1_gbhdq")
+
+[node name="ActionDestroyObject" parent="AreaActionTrigger" unique_id=939660399 node_paths=PackedStringArray("nodesToDestroy") instance=ExtResource("15_4bgwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1482909, 1.2011695, 6.711911)
+nodesToDestroy = [NodePath("../../desk2"), NodePath("../../bathroomCabinet2")]
+
+[node name="ActionSpawnObject" parent="AreaActionTrigger" unique_id=263706975 node_paths=PackedStringArray("spawnNode") instance=ExtResource("16_7fqlb")]
+sceneToSpawn = ExtResource("17_e8hb2")
+spawnNode = NodePath("../../SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=576865999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8499417, -2.1788158, -14.511139)
 
 [editable path="DitheringViewport"]
 [editable path="AreaActionTrigger"]
