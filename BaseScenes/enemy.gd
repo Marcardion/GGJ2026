@@ -13,6 +13,8 @@ extends CharacterBody3D
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 @onready var DeathSFX = $DeathSound
 @onready var DamageSFX = $DamageSound
+var idle = true
+var aggro = false
 var dead = false
 var canAttack = true
 
@@ -31,15 +33,26 @@ func _physics_process(delta):
 	dir.y = 0.0
 	if dir.length() > detection_range:
 		enemy_sprite.play("idle")
+		idle = true
 		return
+	elif idle:
+		idle = false
+		enemy_sprite.play("aggro")
+		aggro = true
+		enemy_sprite.animation_finished.connect(aggro_anim_done)
 	
 	
 	dir = dir.normalized()
 	velocity = dir * move_speed
-	enemy_sprite.play("walking")
+	if !aggro:
+		enemy_sprite.play("walking")
 	move_and_slide()
+	
 	if canAttack:
 		attempt_to_kill_player()
+
+func aggro_anim_done():
+	aggro = false
 
 func attempt_to_kill_player():
 	if Globals.player_enabled == false:

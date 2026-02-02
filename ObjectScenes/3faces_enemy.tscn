@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://dfw28b5y53du0"]
+
+[ext_resource type="Script" uid="uid://c3r646ikwpr4b" path="res://BaseScenes/enemy.gd" id="1_ultxx"]
+[ext_resource type="Texture2D" uid="uid://b8nytdlu45tyl" path="res://art/2D assets/sprites/enemies/enemy_3faces_aggro.png" id="2_1gd1a"]
+[ext_resource type="Texture2D" uid="uid://bk0m6lxf7w3by" path="res://art/2D assets/sprites/enemies/enemy_3faces_attack.png" id="3_wojum"]
+[ext_resource type="Texture2D" uid="uid://jkhypusdxnb0" path="res://art/2D assets/sprites/enemies/enemy_3faces_death.png" id="4_lcftk"]
+[ext_resource type="Texture2D" uid="uid://b6ohrakepp5y3" path="res://art/2D assets/sprites/enemies/enemy_3faces_walkside.png" id="5_5volj"]
+[ext_resource type="Texture2D" uid="uid://oih7ieu461y4" path="res://art/2D assets/sprites/enemies/enemy_3faces_walk.png" id="6_8p37d"]
+[ext_resource type="AudioStream" uid="uid://cmohdgbnkhano" path="res://Sounds/enemy/sfx_oldman_dying.wav" id="7_bgkbj"]
+[ext_resource type="AudioStream" uid="uid://gbknoarmqwxs" path="res://Sounds/enemy/sfx_oldman_hurt.wav" id="8_t1qlq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1ppv"]
+radius = 0.76953125
+height = 3.774063
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8phr"]
+atlas = ExtResource("2_1gd1a")
+region = Rect2(0, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmdcx"]
+atlas = ExtResource("2_1gd1a")
+region = Rect2(413, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re713"]
+atlas = ExtResource("2_1gd1a")
+region = Rect2(826, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgssg"]
+atlas = ExtResource("2_1gd1a")
+region = Rect2(1239, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4fxc"]
+atlas = ExtResource("2_1gd1a")
+region = Rect2(1652, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekjfl"]
+atlas = ExtResource("3_wojum")
+region = Rect2(0, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_don1p"]
+atlas = ExtResource("3_wojum")
+region = Rect2(413, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhpod"]
+atlas = ExtResource("3_wojum")
+region = Rect2(826, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wfwd"]
+atlas = ExtResource("3_wojum")
+region = Rect2(1239, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k3yh"]
+atlas = ExtResource("4_lcftk")
+region = Rect2(0, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb66r"]
+atlas = ExtResource("4_lcftk")
+region = Rect2(413, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpbii"]
+atlas = ExtResource("4_lcftk")
+region = Rect2(826, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnwxa"]
+atlas = ExtResource("4_lcftk")
+region = Rect2(1239, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2td8t"]
+atlas = ExtResource("4_lcftk")
+region = Rect2(1652, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upymc"]
+atlas = ExtResource("5_5volj")
+region = Rect2(0, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vvi5"]
+atlas = ExtResource("5_5volj")
+region = Rect2(413, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3qnp"]
+atlas = ExtResource("6_8p37d")
+region = Rect2(0, 0, 413, 491)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch4dx"]
+atlas = ExtResource("6_8p37d")
+region = Rect2(413, 0, 413, 491)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p3ml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8phr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmdcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re713")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgssg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4fxc")
+}],
+"loop": false,
+"name": &"aggro",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekjfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_don1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhpod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wfwd")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k3yh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb66r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpbii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnwxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2td8t")
+}],
+"loop": false,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upymc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vvi5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3qnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch4dx")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="OldManEnemy" type="CharacterBody3D" unique_id=1414180886]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_mask = 3
+script = ExtResource("1_ultxx")
+move_speed = 5
+health = 15
+attack_range = 4.5
+attack_damage = 2.0
+attack_cooldown = 0.8
+detection_range = 50
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=682257078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7367821, 0)
+shape = SubResource("CapsuleShape3D_b1ppv")
+debug_color = Color(0.7560999, 0, 0.2971994, 0.41960785)
+
+[node name="EnemySprite" type="AnimatedSprite3D" parent="." unique_id=1071977555]
+transform = Transform3D(0.854239, 0, 0, 0, 0.854239, 0, 0, 0, 0.854239, 0, 2.0928895, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_5p3ml")
+animation = &"walking"
+autoplay = "idle"
+frame_progress = 0.80976623
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="." unique_id=84574494]
+stream = ExtResource("7_bgkbj")
+
+[node name="DamageSound" type="AudioStreamPlayer3D" parent="." unique_id=302149201]
+transform = Transform3D(1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0, 1.3333334, 0, 0, 0)
+stream = ExtResource("8_t1qlq")
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=1087820324]
