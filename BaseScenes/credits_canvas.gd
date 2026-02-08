@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var exitButton = $UI/Button
+@onready var exitButton = $UI/HBoxContainer/Button
 @export var scenePath : String
 
 func _ready():
